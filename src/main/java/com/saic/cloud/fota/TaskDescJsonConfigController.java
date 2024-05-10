@@ -1,6 +1,9 @@
 package com.saic.cloud.fota;
 
+import com.saic.cloud.fota.constants.ToolContants;
 import com.saic.cloud.fota.model.*;
+import com.saic.cloud.fota.service.TaskDescService;
+import com.saic.cloud.fota.service.impl.TaskDescServiceImpl;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -8,8 +11,11 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -447,6 +453,8 @@ public class TaskDescJsonConfigController implements Initializable {
     @FXML
     private Button buildJson_btn;
 
+    TaskDescService taskDescService = new TaskDescServiceImpl();
+
     /**
      * 初始化
      *
@@ -455,7 +463,82 @@ public class TaskDescJsonConfigController implements Initializable {
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        buildJson_btn.setOnAction(event -> {
 
+            List<InstallCondition> installReentryPreCheck = new ArrayList<>();
+            if (StringUtils.isNotEmpty(vehicleEnergyReadyLevel_text_reentry.getText())) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.LTE, ToolContants.VEHICLE_ENERGY_READY_LEVEL, vehicleEnergyReadyLevel_text_reentry.getText()));
+            }
+
+            List<String> sysPwrMds = new ArrayList<>();
+            if (sysPwrMd_cb_reentry_off.isSelected()) {
+                sysPwrMds.add(sysPwrMd_cb_reentry_off.getText());
+            }
+            if (sysPwrMd_cb_reentry_acc.isSelected()) {
+                sysPwrMds.add(sysPwrMd_cb_reentry_acc.getText());
+            }
+            if (sysPwrMd_cb_reentry_on.isSelected()) {
+                sysPwrMds.add(sysPwrMd_cb_reentry_on.getText());
+            }
+            if (sysPwrMd_cb_reentry_crank.isSelected()) {
+                sysPwrMds.add(sysPwrMd_cb_reentry_crank.getText());
+            }
+            if(!sysPwrMds.isEmpty()){
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.SYS_PWR_MD,StringUtils.join(sysPwrMds.toArray(),",")));
+            }
+
+            List<String> trShftLvrPoss = new ArrayList<>();
+            if (trShftLvrPos_cb_reentry_r.isSelected()) {
+                sysPwrMds.add(trShftLvrPos_cb_reentry_r.getText());
+            }
+            if (trShftLvrPos_cb_reentry_n.isSelected()) {
+                sysPwrMds.add(trShftLvrPos_cb_reentry_n.getText());
+            }
+            if (trShftLvrPos_cb_reentry_p.isSelected()) {
+                sysPwrMds.add(trShftLvrPos_cb_reentry_p.getText());
+            }
+            if (trShftLvrPos_cb_reentry_d.isSelected()) {
+                sysPwrMds.add(trShftLvrPos_cb_reentry_d.getText());
+            }
+            if(!trShftLvrPoss.isEmpty()){
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.TR_SHFT_LVR_POS,StringUtils.join(trShftLvrPoss.toArray(),",")));
+            }
+
+            if (StringUtils.isNotEmpty(vehSpdAvgDrvn_text_reentry.getText())) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.LTE, ToolContants.VEH_SPD_AVG_DRVN, vehSpdAvgDrvn_text_reentry.getText()));
+            }
+
+            if (StringUtils.isNotEmpty(batSOC_text_reentry.getText())) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.GTE, ToolContants.BAT_SOC, batSOC_text_reentry.getText()));
+            }
+
+            if (StringUtils.isNotEmpty(bMSPackSOCDsp_text_reentry.getText())) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.GTE, ToolContants.BMS_PACK_SOC_DSP, bMSPackSOCDsp_text_reentry.getText()));
+            }
+
+            if (ePTRdy_rd_reentry_y.isSelected()) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.EPT_RDY, ePTRdy_rd_reentry_y.getText()));
+            }
+            if (ePTRdy_rd_reentry_n.isSelected()) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.EPT_RDY, ePTRdy_rd_reentry_n.getText()));
+            }
+
+
+
+            List<InstallCondition> installPreCheck = new ArrayList<>();
+
+            List<InstallCondition> installPopupPolices = new ArrayList<>();
+
+            List<EcuUpdInfo> ecuUpdInfo = new ArrayList<>();
+
+            InstallationDescriptor installationDescriptor = buildInstallationDescriptor(installPopupPolices, installPreCheck, installReentryPreCheck, ecuUpdInfo);
+
+            TaskDesc taskDesc = buildTaskDesc(installationDescriptor, descriptorVersion_text.getText());
+
+            String buildJson = taskDescService.buildTaskDescJson(taskDesc);
+            log.info("buildJson = {}", buildJson);
+
+        });
     }
 
     private ModUpdPolicies buildModUpdPolicies(Integer resetGroup, Integer updTime, Integer upgSeq) {
