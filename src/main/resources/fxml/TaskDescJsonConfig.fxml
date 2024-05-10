@@ -318,7 +318,7 @@
             <Label alignment="CENTER_RIGHT" layoutX="185.0" layoutY="601.0" text="!=" />
             <Label alignment="CENTER_RIGHT" layoutX="186.0" layoutY="634.0" text="!=" />
             <Label alignment="CENTER_RIGHT" layoutX="188.0" layoutY="669.0" text="=" />
-            <Label alignment="CENTER_RIGHT" layoutX="189.0" layoutY="710.0" text="=" />
+            <Label alignment="CENTER_RIGHT" layoutX="189.0" layoutY="710.0" text="!=" />
             <Label alignment="CENTER_RIGHT" layoutX="190.0" layoutY="744.0" text="=" />
             <Label alignment="CENTER_RIGHT" layoutX="188.0" layoutY="778.0" text="!=" />
             <Label alignment="CENTER_RIGHT" layoutX="186.0" layoutY="953.0" text="&lt;=" />
@@ -330,7 +330,7 @@
             <Label alignment="CENTER_RIGHT" layoutX="182.0" layoutY="1265.0" text="!=" />
             <Label alignment="CENTER_RIGHT" layoutX="183.0" layoutY="1298.0" text="!=" />
             <Label alignment="CENTER_RIGHT" layoutX="183.0" layoutY="1333.0" text="=" />
-            <Label alignment="CENTER_RIGHT" layoutX="191.0" layoutY="1373.0" text="=" />
+            <Label alignment="CENTER_RIGHT" layoutX="191.0" layoutY="1373.0" text="!=" />
             <Label alignment="CENTER_RIGHT" layoutX="191.0" layoutY="1407.0" text="=" />
          </children>
       </AnchorPane>

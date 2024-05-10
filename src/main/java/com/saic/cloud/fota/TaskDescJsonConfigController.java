@@ -489,16 +489,16 @@ public class TaskDescJsonConfigController implements Initializable {
 
             List<String> trShftLvrPoss = new ArrayList<>();
             if (trShftLvrPos_cb_reentry_r.isSelected()) {
-                sysPwrMds.add(trShftLvrPos_cb_reentry_r.getText());
+                trShftLvrPoss.add(trShftLvrPos_cb_reentry_r.getText());
             }
             if (trShftLvrPos_cb_reentry_n.isSelected()) {
-                sysPwrMds.add(trShftLvrPos_cb_reentry_n.getText());
+                trShftLvrPoss.add(trShftLvrPos_cb_reentry_n.getText());
             }
             if (trShftLvrPos_cb_reentry_p.isSelected()) {
-                sysPwrMds.add(trShftLvrPos_cb_reentry_p.getText());
+                trShftLvrPoss.add(trShftLvrPos_cb_reentry_p.getText());
             }
             if (trShftLvrPos_cb_reentry_d.isSelected()) {
-                sysPwrMds.add(trShftLvrPos_cb_reentry_d.getText());
+                trShftLvrPoss.add(trShftLvrPos_cb_reentry_d.getText());
             }
             if(!trShftLvrPoss.isEmpty()){
                 installReentryPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.TR_SHFT_LVR_POS,StringUtils.join(trShftLvrPoss.toArray(),",")));
@@ -517,15 +517,225 @@ public class TaskDescJsonConfigController implements Initializable {
             }
 
             if (ePTRdy_rd_reentry_y.isSelected()) {
-                installReentryPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.EPT_RDY, ePTRdy_rd_reentry_y.getText()));
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.EPT_RDY, ToolContants.EPT_RDY_READY));
             }
             if (ePTRdy_rd_reentry_n.isSelected()) {
-                installReentryPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.EPT_RDY, ePTRdy_rd_reentry_n.getText()));
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.EPT_RDY, ToolContants.EPT_DRY_NON_READY));
+            }
+
+            if (extnlTstrDet_rd_reentry_y.isSelected()) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.EXTNL_TSTR_DET, ToolContants.EXTNL_TSTR_DET_ON));
+            }
+            if (extnlTstrDet_rd_reentry_n.isSelected()) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.EXTNL_TSTR_DET, ToolContants.EXTNL_TSTR_DET_OFF));
+            }
+
+            List<String> chargingStates = new ArrayList<>();
+            if (chargingState_cb_reentry_kc.isSelected()) {
+                chargingStates.add(ToolContants.CHARGING_STATE_FAST_CHARGING);
+            }
+            if (chargingState_cb_reentry_mc.isSelected()) {
+                chargingStates.add(ToolContants.CHARGING_STATE_SLOW_CHARGING);
+            }
+            if (chargingState_cb_reentry_wcd.isSelected()) {
+                chargingStates.add(ToolContants.CHARGING_STATE_NO_CHARGING);
+            }
+            if(!chargingStates.isEmpty()){
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.CHARGING_STATE,StringUtils.join(chargingStates.toArray(),",")));
+            }
+
+            List<String> chargingPileTypes = new ArrayList<>();
+            if (chargingPileType_cb_reentry_sz.isSelected()) {
+                chargingPileTypes.add(ToolContants.CHARGING_PILE_TYPE_PRIVATE);
+            }
+            if (chargingPileType_cb_reentry_gz.isSelected()) {
+                chargingPileTypes.add(ToolContants.CHARGING_PILE_TYPE_PUBLIC);
+            }
+            if (chargingPileType_cb_reentry_wcd.isSelected()) {
+                chargingPileTypes.add(ToolContants.CHARGING_PILE_TYPE_NO_CONNECT);
+            }
+            if(!chargingPileTypes.isEmpty()){
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.CHARGING_PILE_TYPE,StringUtils.join(chargingPileTypes.toArray(),",")));
+            }
+
+            if(rVSSts_rd_reentry_ycqdz.isSelected()) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.RVS_STS, ToolContants.RVS_STS_ON));
+            }
+            if(rVSSts_rd_reentry_wycqd.isSelected()) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.RVS_STS, ToolContants.RVS_STS_OFF));
+            }
+
+            if(oneHitScene_rd_reentry_xqms.isSelected()) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_00000001));
+            }
+            if(oneHitScene_rd_reentry_cwms.isSelected()) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_00000002));
+            }
+            if(oneHitScene_rd_reentry_syms.isSelected()) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_00000003));
+            }
+            if(oneHitScene_rd_reentry_zxms.isSelected()) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_00000004));
+            }
+            if(oneHitScene_rd_reentry_xcms.isSelected()) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_0000000B));
+            }
+            if(oneHitScene_rd_reentry_lyms.isSelected()) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_0000000C));
+            }
+
+            if(chargeScene_rd_reentry_gzkc.isSelected()) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.CHARGE_SCENE, ToolContants.CHARGE_SCENE_PUBLIC_FAST_CHARGE));
+            }
+            if(chargeScene_rd_reentry_gzmc.isSelected()) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.CHARGE_SCENE, ToolContants.CHARGE_SCENE_PUBLIC_SLOW_CHARGE));
+            }
+            if(chargeScene_rd_reentry_wxcd.isSelected()) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.CHARGE_SCENE, ToolContants.CHARGE_SCENE_WIRELESS_CHARGE));
+            }
+            if(chargeScene_rd_reentry_bcd.isSelected()) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.CHARGE_SCENE, ToolContants.CHARGE_SCENE_NO_CHARGE));
+            }
+            if(chargeScene_rd_reentry_fd.isSelected()) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.CHARGE_SCENE, ToolContants.CHARGE_SCENE_DISCHARGE));
             }
 
 
 
             List<InstallCondition> installPreCheck = new ArrayList<>();
+            if (StringUtils.isNotEmpty(vehicleEnergyReadyLevel_text_pre.getText())) {
+                installPreCheck.add(buildInstallCondition(ToolContants.LTE, ToolContants.VEHICLE_ENERGY_READY_LEVEL, vehicleEnergyReadyLevel_text_pre.getText()));
+            }
+
+            sysPwrMds = new ArrayList<>();
+            if (sysPwrMd_cb_pre_off.isSelected()) {
+                sysPwrMds.add(sysPwrMd_cb_pre_off.getText());
+            }
+            if (sysPwrMd_cb_pre_acc.isSelected()) {
+                sysPwrMds.add(sysPwrMd_cb_pre_acc.getText());
+            }
+            if (sysPwrMd_cb_pre_on.isSelected()) {
+                sysPwrMds.add(sysPwrMd_cb_pre_on.getText());
+            }
+            if (sysPwrMd_cb_pre_crank.isSelected()) {
+                sysPwrMds.add(sysPwrMd_cb_pre_crank.getText());
+            }
+            if(!sysPwrMds.isEmpty()){
+                installPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.SYS_PWR_MD,StringUtils.join(sysPwrMds.toArray(),",")));
+            }
+
+            trShftLvrPoss = new ArrayList<>();
+            if (trShftLvrPos_cb_pre_r.isSelected()) {
+                trShftLvrPoss.add(trShftLvrPos_cb_pre_r.getText());
+            }
+            if (trShftLvrPos_cb_pre_n.isSelected()) {
+                trShftLvrPoss.add(trShftLvrPos_cb_pre_n.getText());
+            }
+            if (trShftLvrPos_cb_pre_p.isSelected()) {
+                trShftLvrPoss.add(trShftLvrPos_cb_pre_p.getText());
+            }
+            if (trShftLvrPos_cb_pre_d.isSelected()) {
+                trShftLvrPoss.add(trShftLvrPos_cb_pre_d.getText());
+            }
+            if(!trShftLvrPoss.isEmpty()){
+                installPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.TR_SHFT_LVR_POS,StringUtils.join(trShftLvrPoss.toArray(),",")));
+            }
+
+            if (StringUtils.isNotEmpty(vehSpdAvgDrvn_text_pre.getText())) {
+                installPreCheck.add(buildInstallCondition(ToolContants.LTE, ToolContants.VEH_SPD_AVG_DRVN, vehSpdAvgDrvn_text_pre.getText()));
+            }
+
+            if (StringUtils.isNotEmpty(batSOC_text_pre.getText())) {
+                installPreCheck.add(buildInstallCondition(ToolContants.GTE, ToolContants.BAT_SOC, batSOC_text_pre.getText()));
+            }
+
+            if (StringUtils.isNotEmpty(bMSPackSOCDsp_text_pre.getText())) {
+                installReentryPreCheck.add(buildInstallCondition(ToolContants.GTE, ToolContants.BMS_PACK_SOC_DSP, bMSPackSOCDsp_text_pre.getText()));
+            }
+
+            if (ePTRdy_rd_pre_y.isSelected()) {
+                installPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.EPT_RDY, ToolContants.EPT_RDY_READY));
+            }
+            if (ePTRdy_rd_pre_n.isSelected()) {
+                installPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.EPT_RDY, ToolContants.EPT_DRY_NON_READY));
+            }
+
+            if (extnlTstrDet_rd_pre_y.isSelected()) {
+                installPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.EXTNL_TSTR_DET, ToolContants.EXTNL_TSTR_DET_ON));
+            }
+            if (extnlTstrDet_rd_pre_n.isSelected()) {
+                installPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.EXTNL_TSTR_DET, ToolContants.EXTNL_TSTR_DET_OFF));
+            }
+
+            chargingStates = new ArrayList<>();
+            if (chargingState_cb_pre_kc.isSelected()) {
+                chargingStates.add(ToolContants.CHARGING_STATE_FAST_CHARGING);
+            }
+            if (chargingState_cb_pre_mc.isSelected()) {
+                chargingStates.add(ToolContants.CHARGING_STATE_SLOW_CHARGING);
+            }
+            if (chargingState_cb_pre_wcd.isSelected()) {
+                chargingStates.add(ToolContants.CHARGING_STATE_NO_CHARGING);
+            }
+            if(!chargingStates.isEmpty()){
+                installPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.CHARGING_STATE,StringUtils.join(chargingStates.toArray(),",")));
+            }
+
+            chargingPileTypes = new ArrayList<>();
+            if (chargingPileType_cb_pre_sz.isSelected()) {
+                chargingPileTypes.add(ToolContants.CHARGING_PILE_TYPE_PRIVATE);
+            }
+            if (chargingPileType_cb_pre_gz.isSelected()) {
+                chargingPileTypes.add(ToolContants.CHARGING_PILE_TYPE_PUBLIC);
+            }
+            if (chargingPileType_cb_pre_wcd.isSelected()) {
+                chargingPileTypes.add(ToolContants.CHARGING_PILE_TYPE_NO_CONNECT);
+            }
+            if(!chargingPileTypes.isEmpty()){
+                installPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.CHARGING_PILE_TYPE,StringUtils.join(chargingPileTypes.toArray(),",")));
+            }
+
+            if(rVSSts_rd_pre_ycqdz.isSelected()) {
+                installPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.RVS_STS, ToolContants.RVS_STS_ON));
+            }
+            if(rVSSts_rd_pre_wycqd.isSelected()) {
+                installPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.RVS_STS, ToolContants.RVS_STS_OFF));
+            }
+
+            if(oneHitScene_rd_pre_xqms.isSelected()) {
+                installPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_00000001));
+            }
+            if(oneHitScene_rd_pre_cwms.isSelected()) {
+                installPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_00000002));
+            }
+            if(oneHitScene_rd_pre_syms.isSelected()) {
+                installPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_00000003));
+            }
+            if(oneHitScene_rd_pre_zxms.isSelected()) {
+                installPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_00000004));
+            }
+            if(oneHitScene_rd_pre_xcms.isSelected()) {
+                installPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_0000000B));
+            }
+            if(oneHitScene_rd_pre_lyms.isSelected()) {
+                installPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_0000000C));
+            }
+
+            if(chargeScene_rd_pre_gzkc.isSelected()) {
+                installPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.CHARGE_SCENE, ToolContants.CHARGE_SCENE_PUBLIC_FAST_CHARGE));
+            }
+            if(chargeScene_rd_pre_gzmc.isSelected()) {
+                installPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.CHARGE_SCENE, ToolContants.CHARGE_SCENE_PUBLIC_SLOW_CHARGE));
+            }
+            if(chargeScene_rd_pre_wxcd.isSelected()) {
+                installPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.CHARGE_SCENE, ToolContants.CHARGE_SCENE_WIRELESS_CHARGE));
+            }
+            if(chargeScene_rd_pre_bcd.isSelected()) {
+                installPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.CHARGE_SCENE, ToolContants.CHARGE_SCENE_NO_CHARGE));
+            }
+            if(chargeScene_rd_pre_fd.isSelected()) {
+                installPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.CHARGE_SCENE, ToolContants.CHARGE_SCENE_DISCHARGE));
+            }
 
             List<InstallCondition> installPopupPolices = new ArrayList<>();
 
