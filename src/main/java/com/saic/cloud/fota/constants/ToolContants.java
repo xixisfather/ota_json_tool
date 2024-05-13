@@ -58,6 +58,8 @@ public class ToolContants {
     public static final String CHARGE_SCENE_DISCHARGE = "discharge";
 
     public static final String DRIVING_MODE_STA = "DrivingModeSta";
+    public static final String DRIVING_MODE_STA_ON = "ON";
+
     public static final String BATT_MAX_EST_CAP = "BattMaxEstCap";
     public static final String BATT_CUR_EST_CAP = "BattCurEstCap";
 
@@ -68,4 +70,12 @@ public class ToolContants {
     public static final String RESET_GROUP = "resetGroup";
     public static final String UPD_TIME = "updTime";
     public static final String UPG_SEQ = "upgSeq";
+
+    public static final String ECU_NAME_FX_ID = "ecuName_cm";
+    public static final String PHY_ADDR_FX_ID = "phyAddr_text";
+    public static final String MODULE_ID_FX_ID = "moduleId_cm";
+    public static final String BACKUP_TYPE_FX_ID = "backupType_cm";
+    public static final String RESET_GROUP_FX_ID = "resetGroup_cm";
+    public static final String UPD_TIME_FX_ID = "updTime_text";
+    public static final String UPG_SEQ_FX_ID = "upgSeq_text";
 }

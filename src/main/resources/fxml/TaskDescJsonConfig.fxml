@@ -10,13 +10,15 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <ScrollPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.saic.cloud.fota.TaskDescJsonConfigController">
    <content>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1782.0" prefWidth="965.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1942.0" prefWidth="978.0">
          <children>
             <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="55.0" layoutY="27.0" prefHeight="27.0" prefWidth="36.0" text="标题:" />
             <Label alignment="CENTER_RIGHT" layoutX="42.0" layoutY="32.0" text="*" textFill="RED" />
@@ -101,7 +103,7 @@
                   <ToggleGroup fx:id="rVSSts_rd_pre_group" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="rVSSts_rd_pre_wcqd" alignment="CENTER_RIGHT" layoutX="361.0" layoutY="668.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="未远程启动" toggleGroup="$rVSSts_rd_pre_group" />
+            <RadioButton fx:id="rVSSts_rd_pre_wycqd" alignment="CENTER_RIGHT" layoutX="361.0" layoutY="668.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="未远程启动" toggleGroup="$rVSSts_rd_pre_group" />
             <Label alignment="CENTER_RIGHT" layoutX="113.0" layoutY="451.0" prefHeight="17.0" prefWidth="51.0" text="BatSOC:" />
             <Label alignment="CENTER_RIGHT" layoutX="73.0" layoutY="465.0" prefHeight="17.0" prefWidth="95.0" text="蓄电池电量:" textFill="#2c7ce4" />
             <TextField fx:id="batSOC_text_pre" layoutX="208.0" layoutY="446.0" promptText="0-100" />
@@ -186,10 +188,10 @@
                   <ToggleGroup fx:id="rVSSts_rd_reentry_group" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="rVSSts_rd_reentry_wcqd" alignment="CENTER_RIGHT" layoutX="355.0" layoutY="1332.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="未远程启动" toggleGroup="$rVSSts_rd_reentry_group" />
+            <RadioButton fx:id="rVSSts_rd_reentry_wycqd" alignment="CENTER_RIGHT" layoutX="355.0" layoutY="1332.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="未远程启动" toggleGroup="$rVSSts_rd_reentry_group" />
             <Label alignment="CENTER_RIGHT" layoutX="123.0" layoutY="1119.0" prefHeight="17.0" prefWidth="51.0" text="BatSOC:" />
             <Label alignment="CENTER_RIGHT" layoutX="79.0" layoutY="1133.0" prefHeight="17.0" prefWidth="95.0" text="蓄电池电量:" textFill="#2c7ce4" />
-            <TextField fx:id="batSoc_text_reentry" layoutX="212.0" layoutY="1114.0" promptText="0-100" />
+            <TextField fx:id="batSOC_text_reentry" layoutX="212.0" layoutY="1114.0" promptText="0-100" />
             <Label alignment="CENTER_RIGHT" layoutX="384.0" layoutY="1119.0" text="\%" />
             <Label alignment="CENTER_RIGHT" layoutX="66.0" layoutY="1372.0" prefHeight="17.0" prefWidth="105.0" text="OneHitScene:" />
             <Label alignment="CENTER_RIGHT" layoutX="62.0" layoutY="1389.0" prefHeight="17.0" prefWidth="109.0" text="智能场景:" textFill="#2c7ce4" />
@@ -216,72 +218,6 @@
             <RadioButton fx:id="chargeScene_rd_reentry_fd" alignment="CENTER_RIGHT" layoutX="607.0" layoutY="1406.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="62.0" text="放电" toggleGroup="$chargeScene_rd_reentry_group" />
             <Separator layoutX="21.0" layoutY="1451.0" prefHeight="0.0" prefWidth="550.0" />
             <Label alignment="CENTER_RIGHT" layoutX="11.0" layoutY="1454.0" prefHeight="17.0" prefWidth="84.0" text="ecuUpdInfo:" />
-            <Label alignment="CENTER_RIGHT" layoutX="40.0" layoutY="1483.0" prefHeight="17.0" prefWidth="74.0" text="ecuName:" />
-            <Label alignment="CENTER_RIGHT" layoutX="16.0" layoutY="1497.0" prefHeight="17.0" prefWidth="95.0" text="ECU名称:" textFill="#2c7ce4" />
-            <ComboBox fx:id="ecuName_cm" layoutX="123.0" layoutY="1478.0" prefWidth="150.0">
-                    <items>
-                       <FXCollections fx:factory="observableArrayList">
-                          <String fx:value="ICC" />
-                          <String fx:value="ICM" />
-                          <String fx:value="IAM" />
-                          <String fx:value="IPD" />
-                       </FXCollections>
-                    </items>
-            </ComboBox>
-            <Label alignment="CENTER_RIGHT" layoutX="352.0" layoutY="1482.0" prefHeight="17.0" prefWidth="74.0" text="phyAddr:" />
-            <Label alignment="CENTER_RIGHT" layoutX="328.0" layoutY="1496.0" prefHeight="17.0" prefWidth="95.0" text="物理地址:" textFill="#2c7ce4" />
-            <TextField fx:id="phyAddr_text" layoutX="431.0" layoutY="1477.0" promptText="请输入" />
-            <Label alignment="CENTER_RIGHT" layoutX="47.0" layoutY="1529.0" prefHeight="17.0" prefWidth="125.0" text="targetEndModelInfo:" />
-            <Label alignment="CENTER_RIGHT" layoutX="81.0" layoutY="1560.0" prefHeight="17.0" prefWidth="74.0" text="module ID:" />
-            <ComboBox fx:id="moduleId_cm" layoutX="164.0" layoutY="1555.0" prefWidth="150.0">
-               <items>
-                  <FXCollections fx:factory="observableArrayList">
-                     <String fx:value="55" />
-                     <String fx:value="00" />
-                     <String fx:value="01" />
-                     <String fx:value="51" />
-                  </FXCollections>
-               </items>
-            </ComboBox>
-            <Label alignment="CENTER_RIGHT" layoutX="356.0" layoutY="1560.0" prefHeight="17.0" prefWidth="74.0" text="backupType:" />
-            <ComboBox fx:id="backupType_cm" layoutX="439.0" layoutY="1555.0" prefWidth="150.0">
-               <items>
-                  <FXCollections fx:factory="observableArrayList">
-                     <String fx:value="0x1F" />
-                     <String fx:value="0x2F" />
-                     <String fx:value="0x3F" />
-                     <String fx:value="0xF1" />
-                     <String fx:value="0x0F" />
-                     <String fx:value="0xF0" />
-                     <String fx:value="0xFF" />
-                  </FXCollections>
-               </items>
-            </ComboBox>
-            <Label alignment="CENTER_RIGHT" layoutX="77.0" layoutY="1605.0" prefHeight="17.0" prefWidth="111.0" text="modUpdPolicies:" />
-            <Label alignment="CENTER_RIGHT" layoutX="127.0" layoutY="1633.0" prefHeight="17.0" prefWidth="74.0" text="resetGroup:" />
-            <Label alignment="CENTER_RIGHT" layoutX="103.0" layoutY="1647.0" prefHeight="17.0" prefWidth="95.0" text="重启组:" textFill="#2c7ce4" />
-            <ComboBox fx:id="resetGroup_cm" layoutX="210.0" layoutY="1628.0" prefWidth="150.0">
-               <items>
-                  <FXCollections fx:factory="observableArrayList">
-                     <Integer fx:value="1" />
-                     <Integer fx:value="2" />
-                     <Integer fx:value="3" />
-                     <Integer fx:value="4" />
-                     <Integer fx:value="5" />
-                     <Integer fx:value="6" />
-                     <Integer fx:value="7" />
-                     <Integer fx:value="8" />
-                     <Integer fx:value="9" />
-                     <Integer fx:value="10" />
-                  </FXCollections>
-               </items>
-            </ComboBox>
-            <Label alignment="CENTER_RIGHT" layoutX="400.0" layoutY="1631.0" prefHeight="17.0" prefWidth="55.0" text="updTime:" />
-            <Label alignment="CENTER_RIGHT" layoutX="394.0" layoutY="1645.0" prefHeight="17.0" prefWidth="58.0" text="升级时间:" textFill="#2c7ce4" />
-            <TextField fx:id="updTime_text" layoutX="460.0" layoutY="1626.0" promptText="请输入" />
-            <Label alignment="CENTER_RIGHT" layoutX="639.0" layoutY="1627.0" prefHeight="17.0" prefWidth="55.0" text="upgSeq:" />
-            <Label alignment="CENTER_RIGHT" layoutX="633.0" layoutY="1641.0" prefHeight="17.0" prefWidth="58.0" text="升级顺序" textFill="#2c7ce4" />
-            <TextField fx:id="upgSeq_text" layoutX="699.0" layoutY="1622.0" promptText="请输入" />
             <Label alignment="CENTER_RIGHT" layoutX="145.0" layoutY="219.0" text="&lt;=" />
             <Label alignment="CENTER_RIGHT" layoutX="177.0" layoutY="415.0" text="&lt;=" />
             <Label alignment="CENTER_RIGHT" layoutX="180.0" layoutY="486.0" text="&gt;=" />
@@ -306,8 +242,8 @@
             <Label alignment="CENTER_RIGHT" layoutX="182.0" layoutY="1080.0" text="&lt;=" />
             <Label alignment="CENTER_RIGHT" layoutX="182.0" layoutY="1119.0" text="&gt;=" />
             <Label alignment="CENTER_RIGHT" layoutX="182.0" layoutY="1155.0" text="&gt;=" />
-            <Button fx:id="saveDraft_btn" layoutX="287.0" layoutY="1710.0" mnemonicParsing="false" text="保存草稿" />
-            <Button fx:id="buildJson_btn" layoutX="461.0" layoutY="1710.0" mnemonicParsing="false" text="生成json" />
+            <Button fx:id="saveDraft_btn" layoutX="269.0" layoutY="1783.0" mnemonicParsing="false" text="保存草稿" />
+            <Button fx:id="buildJson_btn" layoutX="462.0" layoutY="1783.0" mnemonicParsing="false" text="生成json" />
             <Label alignment="CENTER_RIGHT" layoutX="153.0" layoutY="137.0" text="!=" />
             <Label alignment="CENTER_RIGHT" layoutX="153.0" layoutY="178.0" text="=" />
             <Label alignment="CENTER_RIGHT" layoutX="181.0" layoutY="290.0" text="&lt;=" />
@@ -332,6 +268,99 @@
             <Label alignment="CENTER_RIGHT" layoutX="183.0" layoutY="1333.0" text="=" />
             <Label alignment="CENTER_RIGHT" layoutX="191.0" layoutY="1373.0" text="!=" />
             <Label alignment="CENTER_RIGHT" layoutX="191.0" layoutY="1407.0" text="=" />
+            <Button fx:id="add_ecu_btn" layoutX="633.0" layoutY="1449.0" mnemonicParsing="false" text="+ECU" />
+            <TabPane fx:id="ecu_tp" layoutX="19.0" layoutY="1476.0" prefHeight="300.0" prefWidth="811.0">
+              <tabs>
+                <Tab fx:id="ecu_tab_1" closable="false" text="ecu">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="209.0" prefWidth="789.0">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" layoutX="6.0" layoutY="9.0" prefHeight="17.0" prefWidth="57.0" text="ecuName:" />
+                              <Label alignment="CENTER_RIGHT" layoutY="23.0" prefHeight="17.0" prefWidth="60.0" text="ECU名称:" textFill="#2c7ce4" />
+                              <ComboBox fx:id="ecuName_cm" layoutX="72.0" layoutY="4.0" prefWidth="150.0">
+                                      <items>
+                                         <FXCollections fx:factory="observableArrayList">
+                                            <String fx:value="ICC" />
+                                            <String fx:value="ICM" />
+                                            <String fx:value="IAM" />
+                                            <String fx:value="IPD" />
+                                         </FXCollections>
+                                      </items>
+                              </ComboBox>
+                              <Label alignment="CENTER_RIGHT" layoutX="324.0" layoutY="8.0" prefHeight="17.0" prefWidth="51.0" text="phyAddr:" />
+                              <Label alignment="CENTER_RIGHT" layoutX="314.0" layoutY="22.0" prefHeight="17.0" prefWidth="58.0" text="物理地址:" textFill="#2c7ce4" />
+                              <TextField fx:id="phyAddr_text" layoutX="380.0" layoutY="3.0" promptText="请输入" />
+                              <Label alignment="CENTER_RIGHT" layoutX="8.0" layoutY="55.0" prefHeight="17.0" prefWidth="113.0" text="targetEndModelInfo:" />
+                              <TabPane fx:id="module_tp" layoutX="8.0" layoutY="78.0" prefHeight="163.0" prefWidth="792.0">
+                                <tabs>
+                                  <Tab fx:id="module_tab_1" closable="false" text="module">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="168.0" prefWidth="805.0">
+                                             <children>
+                                                <Label alignment="CENTER_RIGHT" layoutX="14.0" layoutY="19.0" prefHeight="17.0" prefWidth="60.0" text="module ID:" />
+                                                <ComboBox fx:id="moduleId_cm" layoutX="83.0" layoutY="14.0" prefWidth="150.0">
+                                                   <items>
+                                                      <FXCollections fx:factory="observableArrayList">
+                                                         <String fx:value="55" />
+                                                         <String fx:value="00" />
+                                                         <String fx:value="01" />
+                                                         <String fx:value="51" />
+                                                      </FXCollections>
+                                                   </items>
+                                                </ComboBox>
+                                                <Label alignment="CENTER_RIGHT" layoutX="275.0" layoutY="19.0" prefHeight="17.0" prefWidth="74.0" text="backupType:" />
+                                                <ComboBox fx:id="backupType_cm" layoutX="358.0" layoutY="14.0" prefWidth="150.0">
+                                                   <items>
+                                                      <FXCollections fx:factory="observableArrayList">
+                                                         <String fx:value="0x1F" />
+                                                         <String fx:value="0x2F" />
+                                                         <String fx:value="0x3F" />
+                                                         <String fx:value="0xF1" />
+                                                         <String fx:value="0x0F" />
+                                                         <String fx:value="0xF0" />
+                                                         <String fx:value="0xFF" />
+                                                      </FXCollections>
+                                                   </items>
+                                                </ComboBox>
+                                                <Label alignment="CENTER_RIGHT" layoutX="53.0" layoutY="92.0" prefHeight="17.0" prefWidth="67.0" text="resetGroup:" />
+                                                <Label alignment="CENTER_RIGHT" layoutX="73.0" layoutY="106.0" prefHeight="17.0" prefWidth="44.0" text="重启组:" textFill="#2c7ce4" />
+                                                <ComboBox fx:id="resetGroup_cm" layoutX="129.0" layoutY="87.0" prefWidth="150.0">
+                                                   <items>
+                                                      <FXCollections fx:factory="observableArrayList">
+                                                         <Integer fx:value="1" />
+                                                         <Integer fx:value="2" />
+                                                         <Integer fx:value="3" />
+                                                         <Integer fx:value="4" />
+                                                         <Integer fx:value="5" />
+                                                         <Integer fx:value="6" />
+                                                         <Integer fx:value="7" />
+                                                         <Integer fx:value="8" />
+                                                         <Integer fx:value="9" />
+                                                         <Integer fx:value="10" />
+                                                      </FXCollections>
+                                                   </items>
+                                                </ComboBox>
+                                                <Label alignment="CENTER_RIGHT" layoutX="320.0" layoutY="90.0" prefHeight="17.0" prefWidth="54.0" text="updTime:" />
+                                                <TextField fx:id="updTime_text" layoutX="379.0" layoutY="85.0" promptText="请输入" />
+                                                <Label alignment="CENTER_RIGHT" layoutX="566.0" layoutY="86.0" prefHeight="17.0" prefWidth="47.0" text="upgSeq:" />
+                                                <Label alignment="CENTER_RIGHT" layoutX="555.0" layoutY="100.0" prefHeight="17.0" prefWidth="55.0" text="升级顺序" textFill="#2c7ce4" />
+                                                <TextField fx:id="upgSeq_text" layoutX="618.0" layoutY="81.0" promptText="请输入" />
+                                                <Label alignment="CENTER_RIGHT" layoutX="31.0" layoutY="64.0" prefHeight="17.0" prefWidth="94.0" text="modUpdPolicies:" />
+                                                <Label alignment="CENTER_RIGHT" layoutX="319.0" layoutY="106.0" prefHeight="17.0" prefWidth="55.0" text="升级时间:" textFill="#2c7ce4" />
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                </tabs>
+                              </TabPane>
+                              <Button fx:id="add_module_btn" layoutX="129.0" layoutY="50.0" mnemonicParsing="false" text="+MODULE" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+            <Label fx:id="error_label" layoutX="30.0" layoutY="1826.0" textFill="RED" />
          </children>
       </AnchorPane>
    </content>
