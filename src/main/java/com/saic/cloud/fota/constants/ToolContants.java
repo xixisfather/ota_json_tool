@@ -24,7 +24,7 @@ public class ToolContants {
 
     public static final String EPT_RDY = "EPTRdy";
     public static final String EPT_RDY_READY = "ready";
-    public static final String EPT_DRY_NON_READY = "non_ready";
+    public static final String EPT_RDY_NON_READY = "non_ready";
 
     public static final String EXTNL_TSTR_DET = "ExtnlTstrDet";
     public static final String EXTNL_TSTR_DET_ON = "ON";
