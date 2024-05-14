@@ -361,6 +361,7 @@
               </tabs>
             </TabPane>
             <Label fx:id="error_label" layoutX="30.0" layoutY="1826.0" textFill="RED" />
+            <Label fx:id="version_label" alignment="CENTER_RIGHT" layoutX="871.0" layoutY="6.0" />
          </children>
       </AnchorPane>
    </content>

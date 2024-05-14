@@ -7,6 +7,8 @@ package com.saic.cloud.fota.constants;
  */
 public class ToolContants {
     public static final String TASK_DESC_JSON_CONFIG_STAGE_TITLE = "FOTA工具";
+    public static final String TOOL_VERSION = "V0.0.1";
+    public static final String TOOL_DRAFT_NAME = "tool_draft_json.json";
 
     public static final String EQ = "eq";
     public static final String GTE = "gte";
