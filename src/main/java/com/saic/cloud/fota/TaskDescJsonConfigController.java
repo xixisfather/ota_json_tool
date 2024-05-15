@@ -530,6 +530,7 @@ public class TaskDescJsonConfigController implements Initializable {
     @SneakyThrows
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        System.out.println(System.getProperty("user.home"));
         import_ecu_btn.setOnAction(event -> {
             FileChooser fileChooser = new FileChooser();
             fileChooser.setTitle("选择文件");
