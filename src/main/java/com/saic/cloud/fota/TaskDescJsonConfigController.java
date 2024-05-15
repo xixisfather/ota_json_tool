@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -511,6 +512,12 @@ public class TaskDescJsonConfigController implements Initializable {
     @FXML
     private Button saveDraft_btn;
 
+    /**
+     * import ecu btn
+     */
+    @FXML
+    private Button import_ecu_btn;
+
 
     private TaskDescService taskDescService = new TaskDescServiceImpl();
 
@@ -523,6 +530,35 @@ public class TaskDescJsonConfigController implements Initializable {
     @SneakyThrows
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        import_ecu_btn.setOnAction(event -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("选择文件");
+            fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Excel Files", "*.xlsx", "*.xls"));
+            File file = fileChooser.showOpenDialog(new Stage());
+            try {
+                List<EcuUpdInfo> ecuUpdInfos = taskDescService.buildEcuInfoListFromExcle(file.getAbsolutePath());
+                if(ecu_tp.getTabs().size() > 1) {
+                    ecu_tp.getTabs().remove(1, ecu_tp.getTabs().size());
+                }
+                if(module_tp.getTabs().size() > 1) {
+                    module_tp.getTabs().remove(1, module_tp.getTabs().size());
+                }
+                loadEcuUpdInfo(ecuUpdInfos);
+            } catch (Exception e) {
+                e.printStackTrace();
+                log.error(e.getMessage());
+                error_label.setText("导入文件错误");
+            }
+        });
+
+        add_module_btn.setOnAction(event -> {
+            addEcuModule();
+        });
+
+        add_ecu_btn.setOnAction(event -> {
+            addEcu();
+        });
+
         version_label.setText(ToolContants.TOOL_VERSION);
         String jarPath = TaskDescJsonConfigStage.class.getProtectionDomain().getCodeSource().getLocation().getPath();
         File jarFile = new File(jarPath);
@@ -533,106 +569,7 @@ public class TaskDescJsonConfigController implements Initializable {
             loadDraftTemplate(initJson);
         }
 
-        add_module_btn.setOnAction(event -> {
-            Tab newModuleTab = new Tab("module");
-            Tab selected_ecu_tab = ecu_tp.getSelectionModel().getSelectedItem();
-            TabPane selected_module_tab_pan = null;
-            for (Node node : ((AnchorPane) (selected_ecu_tab.contentProperty().getValue())).getChildren()) {
-                if (node instanceof TabPane) {
-                    selected_module_tab_pan = (TabPane) node;
-                    break;
-                }
-            }
-
-            AnchorPane newModuleAnchorPange = new AnchorPane();
-            for (Node moduleNode : ((AnchorPane) (selected_module_tab_pan.getTabs().get(0).contentProperty().getValue())).getChildren()) {
-                Node newModuleNode = null;
-                if (moduleNode instanceof TextField) {
-                    newModuleNode = new TextField();
-                    ((TextField) newModuleNode).setPromptText(((TextField) moduleNode).getPromptText());
-                } else if (moduleNode instanceof Label) {
-                    newModuleNode = new Label();
-                    ((Label) newModuleNode).setText(((Label) moduleNode).getText());
-                    ((Label) newModuleNode).setTextFill(((Label) moduleNode).getTextFill());
-                } else if (moduleNode instanceof ComboBox) {
-                    newModuleNode = new ComboBox<>();
-                    ((ComboBox) newModuleNode).setItems(((ComboBox) moduleNode).getItems());
-                } else {
-                    continue;
-                }
-                ((Control) newModuleNode).setPrefWidth(((Control) moduleNode).getPrefWidth());
-                ((Control) newModuleNode).setPrefHeight(((Control) moduleNode).getPrefHeight());
-                newModuleNode.setId(moduleNode.getId());
-                newModuleNode.setLayoutX(moduleNode.getLayoutX());
-                newModuleNode.setLayoutY(moduleNode.getLayoutY());
-                newModuleAnchorPange.getChildren().add(newModuleNode);
-            }
-            newModuleTab.setContent(newModuleAnchorPange);
-            selected_module_tab_pan.getTabs().add(newModuleTab);
-        });
-        add_ecu_btn.setOnAction(event -> {
-            Tab newTab = new Tab("ecu");
-            AnchorPane newAnchorPange = new AnchorPane();
-            for (Node node : ((AnchorPane) (ecu_tab_1.contentProperty().getValue())).getChildren()) {
-                Node newNode = null;
-                if (node instanceof TextField) {
-                    newNode = new TextField();
-                    ((TextField) newNode).setPromptText(((TextField) node).getPromptText());
-                } else if (node instanceof Label) {
-                    newNode = new Label();
-                    ((Label) newNode).setText(((Label) node).getText());
-                    ((Label) newNode).setTextFill(((Label) node).getTextFill());
-                } else if (node instanceof ComboBox) {
-                    newNode = new ComboBox<>();
-                    ((ComboBox) newNode).setItems(((ComboBox) node).getItems());
-                } else if (node instanceof Button) {
-                    newNode = new Button(((Button) node).getText());
-                    ((Button) newNode).setOnAction(((Button) node).getOnAction());
-                } else if (node instanceof TabPane) {
-                    newNode = new TabPane();
-                    Tab newModuleTab = new Tab("module");
-                    newModuleTab.setClosable(false);
-                    AnchorPane newModuleAnchorPange = new AnchorPane();
-                    for (Node moduleNode : ((AnchorPane) (module_tab_1.contentProperty().getValue())).getChildren()) {
-                        Node newModuleNode = null;
-                        if (moduleNode instanceof TextField) {
-                            newModuleNode = new TextField();
-                            ((TextField) newModuleNode).setPromptText(((TextField) moduleNode).getPromptText());
-                        } else if (moduleNode instanceof Label) {
-                            newModuleNode = new Label();
-                            ((Label) newModuleNode).setText(((Label) moduleNode).getText());
-                            ((Label) newModuleNode).setTextFill(((Label) moduleNode).getTextFill());
-                        } else if (moduleNode instanceof ComboBox) {
-                            newModuleNode = new ComboBox<>();
-                            ((ComboBox) newModuleNode).setItems(((ComboBox) moduleNode).getItems());
-                        } else {
-                            continue;
-                        }
-                        ((Control) newModuleNode).setPrefWidth(((Control) moduleNode).getPrefWidth());
-                        ((Control) newModuleNode).setPrefHeight(((Control) moduleNode).getPrefHeight());
-                        newModuleNode.setId(moduleNode.getId());
-                        newModuleNode.setLayoutX(moduleNode.getLayoutX());
-                        newModuleNode.setLayoutY(moduleNode.getLayoutY());
-                        newModuleAnchorPange.getChildren().add(newModuleNode);
-                    }
-                    newModuleTab.setContent(newModuleAnchorPange);
-                    ((TabPane) newNode).getTabs().add(newModuleTab);
-                } else {
-                    continue;
-                }
-                ((Control) newNode).setPrefWidth(((Control) node).getPrefWidth());
-                ((Control) newNode).setPrefHeight(((Control) node).getPrefHeight());
-                newNode.setId(node.getId());
-                newNode.setLayoutX(node.getLayoutX());
-                newNode.setLayoutY(node.getLayoutY());
-                newAnchorPange.getChildren().add(newNode);
-
-            }
-            newTab.setContent(newAnchorPange);
-            ecu_tp.getTabs().add(newTab);
-        });
         saveDraft_btn.setOnAction(event -> {
-
             String draftJson = JSON.toJSONString(buildTaskDescTemplate());
             File draftFile = new File(draftPath);
             if (draftFile.exists()) {
@@ -655,6 +592,10 @@ public class TaskDescJsonConfigController implements Initializable {
             FileUtils.TextToFile(fileDirectory.getAbsolutePath() + "/" + title_text.getText() + ".json", buildJson);
             log.info("jsonFile = {}", fileDirectory.getAbsolutePath() + "/" + title_text.getText() + ".json");
             error_label.setText("生成json文件成功：" + fileDirectory.getAbsolutePath() + "/" + title_text.getText() + ".json");
+            File draftFile = new File(draftPath);
+            if (draftFile.exists()) {
+                draftFile.delete();
+            }
         });
     }
 
@@ -672,6 +613,67 @@ public class TaskDescJsonConfigController implements Initializable {
         descriptorVersion_text.setText(taskDescTemplate.getTaskDesc().getDescriptorVersion());
         loadInstallPopupPolices(taskDescTemplate.getTaskDesc().getInstallationDescriptor().getInstallPopupPolices());
         loadInstallPreCheck(taskDescTemplate.getTaskDesc().getInstallationDescriptor().getInstallPreCheck());
+        loadInstallReentryPreCheck(taskDescTemplate.getTaskDesc().getInstallationDescriptor().getInstallReentryPreCheck());
+        loadEcuUpdInfo(taskDescTemplate.getTaskDesc().getInstallationDescriptor().getEcuUpdInfo());
+    }
+
+    private void loadEcuUpdInfo(List<EcuUpdInfo> ecuUpdInfos) {
+        if (CollectionUtils.isNotEmpty(ecuUpdInfos)) {
+            for (int i = 0; i < ecuUpdInfos.size(); i++) {
+                if (i > 0) {
+                    addEcu();
+                }
+                ecu_tp.getSelectionModel().select(i);
+                EcuUpdInfo ecuUpdInfo = ecuUpdInfos.get(i);
+                List<TargetEndModelInfo> targetEndModelInfos = ecuUpdInfo.getTargetEndModelInfo();
+                if (CollectionUtils.isNotEmpty(targetEndModelInfos)) {
+                    for (int j = 0; j < targetEndModelInfos.size(); j++) {
+                        if (j > 0) {
+                            addEcuModule();
+                        }
+
+                    }
+
+                }
+            }
+            for (int i = 0; i < ecuUpdInfos.size(); i++) {
+                EcuUpdInfo ecuUpdInfo = ecuUpdInfos.get(i);
+                Tab tab = ecu_tp.getTabs().get(i);
+                for (Node node : ((AnchorPane) (tab.contentProperty().getValue())).getChildren()) {
+                    if (StringUtils.equals("ecuName_cm", node.getId())) {
+                        ((ComboBox) node).setValue(ecuUpdInfo.getEcuName());
+                    } else if (StringUtils.equals("phyAddr_text", node.getId())) {
+                        ((TextField) node).setText(ecuUpdInfo.getPhyAddr());
+                    } else if (StringUtils.equals("module_tp", node.getId())) {
+                        List<TargetEndModelInfo> targetEndModelInfos = ecuUpdInfo.getTargetEndModelInfo();
+                        int j = 0;
+                        for (Tab moduleTab : ((TabPane) node).getTabs()) {
+                            TargetEndModelInfo targetEndModelInfo = targetEndModelInfos.get(j);
+                            for (Node moduleNode : ((AnchorPane) (moduleTab.contentProperty().getValue())).getChildren()) {
+                                if (StringUtils.equals("moduleId_cm", moduleNode.getId())) {
+                                    ((ComboBox) moduleNode).setValue(targetEndModelInfo.getModuleId());
+                                } else if (StringUtils.equals("backupType_cm", moduleNode.getId())) {
+                                    ((ComboBox) moduleNode).setValue(targetEndModelInfo.getBackupType());
+                                } else if (StringUtils.equals("resetGroup_cm", moduleNode.getId())) {
+                                    ((ComboBox) moduleNode).setValue(targetEndModelInfo.getModUpdPolicies().getResetGroup());
+                                } else if (StringUtils.equals("updTime_text", moduleNode.getId())) {
+                                    if (null != targetEndModelInfo.getModUpdPolicies().getUpdTime()) {
+                                        ((TextField) moduleNode).setText(String.valueOf(targetEndModelInfo.getModUpdPolicies().getUpdTime()));
+
+                                    }
+                                } else if (StringUtils.equals("upgSeq_text", moduleNode.getId())) {
+                                    if (null != targetEndModelInfo.getModUpdPolicies().getUpgSeq()) {
+                                        ((TextField) moduleNode).setText(String.valueOf(targetEndModelInfo.getModUpdPolicies().getUpgSeq()));
+
+                                    }
+                                }
+                            }
+                            j++;
+                        }
+                    }
+                }
+            }
+        }
     }
 
     private void loadInstallPreCheck(List<InstallCondition> installPreCheck) {
@@ -733,7 +735,151 @@ public class TaskDescJsonConfigController implements Initializable {
                     } else if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE_NO_CONNECT, installCondition.getValue())) {
                         chargingPileType_cb_pre_wcd.setSelected(true);
                     }
-                } else 
+                } else if (StringUtils.equals(ToolContants.RVS_STS, installCondition.getType())) {
+                    if (StringUtils.equals(ToolContants.RVS_STS_ON, installCondition.getValue())) {
+                        rVSSts_rd_pre_ycqdz.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.RVS_STS_OFF, installCondition.getValue())) {
+                        rVSSts_rd_pre_wycqd.setSelected(true);
+                    }
+                } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE, installCondition.getType())) {
+                    if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000001, installCondition.getValue())) {
+                        oneHitScene_rd_pre_xqms.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000002, installCondition.getValue())) {
+                        oneHitScene_rd_pre_cwms.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000003, installCondition.getValue())) {
+                        oneHitScene_rd_pre_syms.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000004, installCondition.getValue())) {
+                        oneHitScene_rd_pre_zxms.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000B, installCondition.getValue())) {
+                        oneHitScene_rd_pre_xcms.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000C, installCondition.getValue())) {
+                        oneHitScene_rd_pre_lyms.setSelected(true);
+                    }
+                } else if (StringUtils.equals(ToolContants.CHARGE_SCENE, installCondition.getType())) {
+                    if (StringUtils.equals(ToolContants.CHARGE_SCENE_PUBLIC_FAST_CHARGE, installCondition.getValue())) {
+                        chargeScene_rd_pre_gzkc.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.CHARGE_SCENE_PUBLIC_SLOW_CHARGE, installCondition.getValue())) {
+                        chargeScene_rd_pre_gzmc.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.CHARGE_SCENE_WIRELESS_CHARGE, installCondition.getValue())) {
+                        chargeScene_rd_pre_wxcd.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.CHARGE_SCENE_NO_CHARGE, installCondition.getValue())) {
+                        chargeScene_rd_pre_bcd.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.CHARGE_SCENE_DISCHARGE, installCondition.getValue())) {
+                        chargeScene_rd_pre_fd.setSelected(true);
+                    }
+                } else if (StringUtils.equals(ToolContants.DRIVING_MODE_STA, installCondition.getType())) {
+                    if (StringUtils.equals(ToolContants.DRIVING_MODE_STA_ON, installCondition.getValue())) {
+                        drivingModeSta_rd_pre_cjjnmsqdz.setSelected(true);
+                    }
+                } else if (StringUtils.equals(ToolContants.BATT_MAX_EST_CAP, installCondition.getType())) {
+                    battMaxEstCap_text_pre.setText(installCondition.getValue());
+                } else if (StringUtils.equals(ToolContants.BATT_CUR_EST_CAP, installCondition.getType())) {
+                    battCurEstCap_text_pre.setText(installCondition.getValue());
+                }
+            }
+        }
+    }
+
+    private void loadInstallReentryPreCheck(List<InstallCondition> installReentryPreCheck) {
+        if (CollectionUtils.isNotEmpty(installReentryPreCheck)) {
+            for (InstallCondition installCondition : installReentryPreCheck) {
+                if (StringUtils.equals(ToolContants.SYS_PWR_MD, installCondition.getType())) {
+                    if (StringUtils.equals(sysPwrMd_cb_reentry_off.getText(), installCondition.getValue())) {
+                        sysPwrMd_cb_reentry_off.setSelected(true);
+                    } else if (StringUtils.equals(sysPwrMd_cb_reentry_acc.getText(), installCondition.getValue())) {
+                        sysPwrMd_cb_reentry_acc.setSelected(true);
+                    } else if (StringUtils.equals(sysPwrMd_cb_reentry_on.getText(), installCondition.getValue())) {
+                        sysPwrMd_cb_reentry_on.setSelected(true);
+                    } else if (StringUtils.equals(sysPwrMd_cb_reentry_crank.getText(), installCondition.getValue())) {
+                        sysPwrMd_cb_reentry_crank.setSelected(true);
+                    }
+                } else if (StringUtils.equals(ToolContants.TR_SHFT_LVR_POS, installCondition.getType())) {
+                    if (StringUtils.equals(trShftLvrPos_cb_reentry_r.getText(), installCondition.getValue())) {
+                        trShftLvrPos_cb_reentry_r.setSelected(true);
+                    } else if (StringUtils.equals(trShftLvrPos_cb_reentry_n.getText(), installCondition.getValue())) {
+                        trShftLvrPos_cb_reentry_n.setSelected(true);
+                    } else if (StringUtils.equals(trShftLvrPos_cb_reentry_p.getText(), installCondition.getValue())) {
+                        trShftLvrPos_cb_reentry_p.setSelected(true);
+                    } else if (StringUtils.equals(trShftLvrPos_cb_reentry_d.getText(), installCondition.getValue())) {
+                        trShftLvrPos_cb_reentry_d.setSelected(true);
+                    }
+                } else if (StringUtils.equals(ToolContants.VEH_SPD_AVG_DRVN, installCondition.getType())) {
+                    vehSpdAvgDrvn_text_reentry.setText(installCondition.getValue());
+                } else if (StringUtils.equals(ToolContants.VEHICLE_ENERGY_READY_LEVEL, installCondition.getType())) {
+                    vehicleEnergyReadyLevel_text_reentry.setText(installCondition.getValue());
+                } else if (StringUtils.equals(ToolContants.BAT_SOC, installCondition.getType())) {
+                    batSOC_text_reentry.setText(installCondition.getValue());
+                } else if (StringUtils.equals(ToolContants.BMS_PACK_SOC_DSP, installCondition.getType())) {
+                    bMSPackSOCDsp_text_reentry.setText(installCondition.getValue());
+                } else if (StringUtils.equals(ToolContants.EPT_RDY, installCondition.getType())) {
+                    if (StringUtils.equals(ToolContants.EPT_RDY_READY, installCondition.getValue())) {
+                        ePTRdy_rd_reentry_y.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.EPT_RDY_NON_READY, installCondition.getValue())) {
+                        ePTRdy_rd_reentry_n.setSelected(true);
+                    }
+                } else if (StringUtils.equals(ToolContants.EXTNL_TSTR_DET, installCondition.getType())) {
+                    if (StringUtils.equals(ToolContants.EXTNL_TSTR_DET_ON, installCondition.getValue())) {
+                        extnlTstrDet_rd_reentry_y.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.EXTNL_TSTR_DET_OFF, installCondition.getValue())) {
+                        extnlTstrDet_rd_reentry_n.setSelected(true);
+                    }
+                } else if (StringUtils.equals(ToolContants.CHARGING_STATE, installCondition.getType())) {
+                    if (StringUtils.equals(ToolContants.CHARGING_STATE_FAST_CHARGING, installCondition.getValue())) {
+                        chargingState_cb_reentry_kc.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.CHARGING_STATE_SLOW_CHARGING, installCondition.getValue())) {
+                        chargingState_cb_reentry_mc.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.CHARGING_STATE_NO_CHARGING, installCondition.getValue())) {
+                        chargingState_cb_reentry_wcd.setSelected(true);
+                    }
+                } else if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE, installCondition.getType())) {
+                    if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE_PRIVATE, installCondition.getValue())) {
+                        chargingPileType_cb_reentry_sz.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE_PUBLIC, installCondition.getValue())) {
+                        chargingPileType_cb_reentry_gz.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE_NO_CONNECT, installCondition.getValue())) {
+                        chargingPileType_cb_reentry_wcd.setSelected(true);
+                    }
+                } else if (StringUtils.equals(ToolContants.RVS_STS, installCondition.getType())) {
+                    if (StringUtils.equals(ToolContants.RVS_STS_ON, installCondition.getValue())) {
+                        rVSSts_rd_reentry_ycqdz.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.RVS_STS_OFF, installCondition.getValue())) {
+                        rVSSts_rd_reentry_wycqd.setSelected(true);
+                    }
+                } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE, installCondition.getType())) {
+                    if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000001, installCondition.getValue())) {
+                        oneHitScene_rd_reentry_xqms.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000002, installCondition.getValue())) {
+                        oneHitScene_rd_reentry_cwms.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000003, installCondition.getValue())) {
+                        oneHitScene_rd_reentry_syms.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000004, installCondition.getValue())) {
+                        oneHitScene_rd_reentry_zxms.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000B, installCondition.getValue())) {
+                        oneHitScene_rd_reentry_xcms.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000C, installCondition.getValue())) {
+                        oneHitScene_rd_reentry_lyms.setSelected(true);
+                    }
+                } else if (StringUtils.equals(ToolContants.CHARGE_SCENE, installCondition.getType())) {
+                    if (StringUtils.equals(ToolContants.CHARGE_SCENE_PUBLIC_FAST_CHARGE, installCondition.getValue())) {
+                        chargeScene_rd_reentry_gzkc.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.CHARGE_SCENE_PUBLIC_SLOW_CHARGE, installCondition.getValue())) {
+                        chargeScene_rd_reentry_gzmc.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.CHARGE_SCENE_WIRELESS_CHARGE, installCondition.getValue())) {
+                        chargeScene_rd_reentry_wxcd.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.CHARGE_SCENE_NO_CHARGE, installCondition.getValue())) {
+                        chargeScene_rd_reentry_bcd.setSelected(true);
+                    } else if (StringUtils.equals(ToolContants.CHARGE_SCENE_DISCHARGE, installCondition.getValue())) {
+                        chargeScene_rd_reentry_fd.setSelected(true);
+                    }
+                } else if (StringUtils.equals(ToolContants.DRIVING_MODE_STA, installCondition.getType())) {
+                    if (StringUtils.equals(ToolContants.DRIVING_MODE_STA_ON, installCondition.getValue())) {
+                        drivingModeSta_rd_pre_cjjnmsqdz.setSelected(true);
+                    }
+                } else if (StringUtils.equals(ToolContants.BATT_MAX_EST_CAP, installCondition.getType())) {
+                    battMaxEstCap_text_pre.setText(installCondition.getValue());
+                } else if (StringUtils.equals(ToolContants.BATT_CUR_EST_CAP, installCondition.getType())) {
+                    battCurEstCap_text_pre.setText(installCondition.getValue());
+                }
             }
         }
     }
@@ -1213,5 +1359,105 @@ public class TaskDescJsonConfigController implements Initializable {
                 .installationDescriptor(installationDescriptor)
                 .descriptorVersion(descriptorVersion)
                 .build();
+    }
+
+    private void addEcuModule() {
+        Tab newModuleTab = new Tab("module");
+        Tab selected_ecu_tab = ecu_tp.getSelectionModel().getSelectedItem();
+        TabPane selected_module_tab_pan = null;
+        for (Node node : ((AnchorPane) (selected_ecu_tab.contentProperty().getValue())).getChildren()) {
+            if (node instanceof TabPane) {
+                selected_module_tab_pan = (TabPane) node;
+                break;
+            }
+        }
+
+        AnchorPane newModuleAnchorPange = new AnchorPane();
+        for (Node moduleNode : ((AnchorPane) (selected_module_tab_pan.getTabs().get(0).contentProperty().getValue())).getChildren()) {
+            Node newModuleNode = null;
+            if (moduleNode instanceof TextField) {
+                newModuleNode = new TextField();
+                ((TextField) newModuleNode).setPromptText(((TextField) moduleNode).getPromptText());
+            } else if (moduleNode instanceof Label) {
+                newModuleNode = new Label();
+                ((Label) newModuleNode).setText(((Label) moduleNode).getText());
+                ((Label) newModuleNode).setTextFill(((Label) moduleNode).getTextFill());
+            } else if (moduleNode instanceof ComboBox) {
+                newModuleNode = new ComboBox<>();
+                ((ComboBox) newModuleNode).setItems(((ComboBox) moduleNode).getItems());
+            } else {
+                continue;
+            }
+            ((Control) newModuleNode).setPrefWidth(((Control) moduleNode).getPrefWidth());
+            ((Control) newModuleNode).setPrefHeight(((Control) moduleNode).getPrefHeight());
+            newModuleNode.setId(moduleNode.getId());
+            newModuleNode.setLayoutX(moduleNode.getLayoutX());
+            newModuleNode.setLayoutY(moduleNode.getLayoutY());
+            newModuleAnchorPange.getChildren().add(newModuleNode);
+        }
+        newModuleTab.setContent(newModuleAnchorPange);
+        selected_module_tab_pan.getTabs().add(newModuleTab);
+    }
+
+    private void addEcu() {
+        Tab newTab = new Tab("ecu");
+        AnchorPane newAnchorPange = new AnchorPane();
+        for (Node node : ((AnchorPane) (ecu_tab_1.contentProperty().getValue())).getChildren()) {
+            Node newNode = null;
+            if (node instanceof TextField) {
+                newNode = new TextField();
+                ((TextField) newNode).setPromptText(((TextField) node).getPromptText());
+            } else if (node instanceof Label) {
+                newNode = new Label();
+                ((Label) newNode).setText(((Label) node).getText());
+                ((Label) newNode).setTextFill(((Label) node).getTextFill());
+            } else if (node instanceof ComboBox) {
+                newNode = new ComboBox<>();
+                ((ComboBox) newNode).setItems(((ComboBox) node).getItems());
+            } else if (node instanceof Button) {
+                newNode = new Button(((Button) node).getText());
+                ((Button) newNode).setOnAction(((Button) node).getOnAction());
+            } else if (node instanceof TabPane) {
+                newNode = new TabPane();
+                Tab newModuleTab = new Tab("module");
+                newModuleTab.setClosable(false);
+                AnchorPane newModuleAnchorPange = new AnchorPane();
+                for (Node moduleNode : ((AnchorPane) (module_tab_1.contentProperty().getValue())).getChildren()) {
+                    Node newModuleNode = null;
+                    if (moduleNode instanceof TextField) {
+                        newModuleNode = new TextField();
+                        ((TextField) newModuleNode).setPromptText(((TextField) moduleNode).getPromptText());
+                    } else if (moduleNode instanceof Label) {
+                        newModuleNode = new Label();
+                        ((Label) newModuleNode).setText(((Label) moduleNode).getText());
+                        ((Label) newModuleNode).setTextFill(((Label) moduleNode).getTextFill());
+                    } else if (moduleNode instanceof ComboBox) {
+                        newModuleNode = new ComboBox<>();
+                        ((ComboBox) newModuleNode).setItems(((ComboBox) moduleNode).getItems());
+                    } else {
+                        continue;
+                    }
+                    ((Control) newModuleNode).setPrefWidth(((Control) moduleNode).getPrefWidth());
+                    ((Control) newModuleNode).setPrefHeight(((Control) moduleNode).getPrefHeight());
+                    newModuleNode.setId(moduleNode.getId());
+                    newModuleNode.setLayoutX(moduleNode.getLayoutX());
+                    newModuleNode.setLayoutY(moduleNode.getLayoutY());
+                    newModuleAnchorPange.getChildren().add(newModuleNode);
+                }
+                newModuleTab.setContent(newModuleAnchorPange);
+                ((TabPane) newNode).getTabs().add(newModuleTab);
+            } else {
+                continue;
+            }
+            ((Control) newNode).setPrefWidth(((Control) node).getPrefWidth());
+            ((Control) newNode).setPrefHeight(((Control) node).getPrefHeight());
+            newNode.setId(node.getId());
+            newNode.setLayoutX(node.getLayoutX());
+            newNode.setLayoutY(node.getLayoutY());
+            newAnchorPange.getChildren().add(newNode);
+
+        }
+        newTab.setContent(newAnchorPange);
+        ecu_tp.getTabs().add(newTab);
     }
 }
