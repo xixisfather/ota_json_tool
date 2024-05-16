@@ -224,7 +224,7 @@
             <Label alignment="CENTER_RIGHT" layoutX="215.0" layoutY="455.0" text="&gt;=" />
             <Label alignment="CENTER_RIGHT" layoutX="64.0" layoutY="777.0" prefHeight="17.0" prefWidth="105.0" text="DrivingModeSta:" />
             <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="794.0" prefHeight="17.0" prefWidth="109.0" text="超级节能模式:" textFill="#2c7ce4" />
-            <RadioButton fx:id="drivingModeSta_rd_pre_cjjnmsqdz" alignment="CENTER_RIGHT" layoutX="264.0" layoutY="781.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="150.0" text="超级节能模式启动中">
+            <RadioButton fx:id="drivingModeSta_rd_pre_cjjnmsqdz" alignment="CENTER_RIGHT" layoutX="264.0" layoutY="781.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="183.0" text="超级节能模式启动中">
                <toggleGroup>
                   <ToggleGroup fx:id="DrivingModeSta_rd_pre_group" />
                </toggleGroup>
