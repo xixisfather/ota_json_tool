@@ -280,10 +280,9 @@
                               <ComboBox fx:id="ecuName_cm" layoutX="130.0" layoutY="10.0" prefWidth="150.0">
                                       <items>
                                          <FXCollections fx:factory="observableArrayList">
-                                            <String fx:value="ICC" />
-                                            <String fx:value="ICM" />
-                                            <String fx:value="IAM" />
+                                            <String fx:value="ICB" />
                                             <String fx:value="IPD" />
+                                            <String fx:value="TBOX" />
                                          </FXCollections>
                                       </items>
                               </ComboBox>
@@ -301,10 +300,19 @@
                                                 <ComboBox fx:id="moduleId_cm" layoutX="143.0" layoutY="14.0" prefWidth="150.0">
                                                    <items>
                                                       <FXCollections fx:factory="observableArrayList">
-                                                         <String fx:value="55" />
+                                                         <String fx:value="BM" />
+                                                         <String fx:value="99" />
                                                          <String fx:value="00" />
                                                          <String fx:value="01" />
+                                                         <String fx:value="02" />
+                                                         <String fx:value="03" />
+                                                         <String fx:value="04" />
+                                                         <String fx:value="05" />
                                                          <String fx:value="51" />
+                                                         <String fx:value="52" />
+                                                         <String fx:value="54" />
+                                                         <String fx:value="90" />
+                                                         <String fx:value="95" />
                                                       </FXCollections>
                                                    </items>
                                                 </ComboBox>
@@ -313,11 +321,7 @@
                                                    <items>
                                                       <FXCollections fx:factory="observableArrayList">
                                                          <String fx:value="0x1F" />
-                                                         <String fx:value="0x2F" />
-                                                         <String fx:value="0x3F" />
                                                          <String fx:value="0xF1" />
-                                                         <String fx:value="0x0F" />
-                                                         <String fx:value="0xF0" />
                                                          <String fx:value="0xFF" />
                                                       </FXCollections>
                                                    </items>
