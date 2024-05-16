@@ -23,114 +23,114 @@
             <Label contentDisplay="RIGHT" layoutX="55.0" layoutY="27.0" prefHeight="27.0" prefWidth="38.0" text="标题:" />
             <Label alignment="CENTER_RIGHT" layoutX="42.0" layoutY="32.0" text="*" textFill="RED" />
             <Label layoutX="342.0" layoutY="32.0" prefHeight="17.0" prefWidth="128.0" text="descriptorVersion:" />
-            <TextField fx:id="title_text" layoutX="135.0" layoutY="27.0" promptText="请输入" />
+            <TextField fx:id="title_text" layoutX="100.0" layoutY="27.0" promptText="请输入" />
             <Label layoutX="359.0" layoutY="54.0" prefHeight="17.0" prefWidth="106.0" text="描述版本号:" textFill="#2c7ce4" />
             <TextField fx:id="descriptorVersion_text" layoutX="491.0" layoutY="27.0" promptText="请输入" />
             <Separator layoutX="16.0" layoutY="90.0" prefHeight="2.0" prefWidth="576.0" />
             <Label alignment="CENTER_RIGHT" layoutX="21.0" layoutY="111.0" text="installPopupPolices:" />
-            <Label layoutX="148.0" layoutY="111.0" text="安装弹窗条件:" textFill="#2c7ce4" />
+            <Label layoutX="191.0" layoutY="111.0" text="安装弹窗条件:" textFill="#2c7ce4" />
             <Label alignment="CENTER_RIGHT" layoutX="72.0" layoutY="136.0" text="SysPwrMd:" />
-            <CheckBox fx:id="sysPwrMd_cb_up_off" alignment="CENTER_RIGHT" layoutX="186.0" layoutY="136.0" mnemonicParsing="false" text="OFF" />
+            <CheckBox fx:id="sysPwrMd_cb_up_off" alignment="CENTER_RIGHT" layoutX="223.0" layoutY="140.0" mnemonicParsing="false" text="OFF" />
             <Label alignment="CENTER_RIGHT" layoutX="59.0" layoutY="154.0" prefHeight="17.0" prefWidth="74.0" text="电源模式:" textFill="#2c7ce4" />
-            <CheckBox fx:id="sysPwrMd_cb_up_acc" alignment="CENTER_RIGHT" layoutX="260.0" layoutY="136.0" mnemonicParsing="false" text="ACC" />
-            <CheckBox fx:id="sysPwrMd_cb_up_on" alignment="CENTER_RIGHT" layoutX="336.0" layoutY="136.0" mnemonicParsing="false" text="ON" />
-            <CheckBox fx:id="sysPwrMd_cb_up_crank" alignment="CENTER_RIGHT" layoutX="409.0" layoutY="136.0" mnemonicParsing="false" text="CRANK" />
+            <CheckBox fx:id="sysPwrMd_cb_up_acc" alignment="CENTER_RIGHT" layoutX="297.0" layoutY="140.0" mnemonicParsing="false" text="ACC" />
+            <CheckBox fx:id="sysPwrMd_cb_up_on" alignment="CENTER_RIGHT" layoutX="373.0" layoutY="140.0" mnemonicParsing="false" text="ON" />
+            <CheckBox fx:id="sysPwrMd_cb_up_crank" alignment="CENTER_RIGHT" layoutX="446.0" layoutY="140.0" mnemonicParsing="false" text="CRANK" />
             <Label alignment="CENTER_RIGHT" layoutX="59.0" layoutY="178.0" text="TrShftLvrPos:" />
             <Label alignment="CENTER_RIGHT" layoutX="59.0" layoutY="195.0" prefHeight="17.0" prefWidth="74.0" text="档位:" textFill="#2c7ce4" />
-            <CheckBox fx:id="trShftLvrPos_cb_up_r" alignment="CENTER_RIGHT" layoutX="186.0" layoutY="177.0" mnemonicParsing="false" text="R" />
-            <CheckBox fx:id="trShftLvrPos_cb_up_n" alignment="CENTER_RIGHT" layoutX="260.0" layoutY="177.0" mnemonicParsing="false" text="N" />
-            <CheckBox fx:id="trShftLvrPos_cb_up_p" alignment="CENTER_RIGHT" layoutX="336.0" layoutY="177.0" mnemonicParsing="false" text="P" />
-            <CheckBox fx:id="trShftLvrPos_cb_up_d" alignment="CENTER_RIGHT" layoutX="409.0" layoutY="177.0" mnemonicParsing="false" text="D" />
+            <CheckBox fx:id="trShftLvrPos_cb_up_r" alignment="CENTER_RIGHT" layoutX="223.0" layoutY="181.0" mnemonicParsing="false" text="R" />
+            <CheckBox fx:id="trShftLvrPos_cb_up_n" alignment="CENTER_RIGHT" layoutX="297.0" layoutY="181.0" mnemonicParsing="false" text="N" />
+            <CheckBox fx:id="trShftLvrPos_cb_up_p" alignment="CENTER_RIGHT" layoutX="373.0" layoutY="181.0" mnemonicParsing="false" text="P" />
+            <CheckBox fx:id="trShftLvrPos_cb_up_d" alignment="CENTER_RIGHT" layoutX="446.0" layoutY="181.0" mnemonicParsing="false" text="D" />
             <Label alignment="CENTER_RIGHT" layoutX="38.0" layoutY="219.0" text="VehSpdAvgDrvn:" />
             <Label alignment="CENTER_RIGHT" layoutX="59.0" layoutY="236.0" prefHeight="17.0" prefWidth="74.0" text="车速:" textFill="#2c7ce4" />
-            <TextField fx:id="vehSpdAvgDrvn_text_up" layoutX="173.0" layoutY="214.0" promptText="1-100" />
-            <Label alignment="CENTER_RIGHT" layoutX="342.0" layoutY="219.0" text="km/h" />
+            <TextField fx:id="vehSpdAvgDrvn_text_up" layoutX="210.0" layoutY="218.0" promptText="1-100" />
+            <Label alignment="CENTER_RIGHT" layoutX="406.0" layoutY="223.0" text="km/h" />
             <Label alignment="CENTER_RIGHT" layoutX="21.0" layoutY="262.0" text="installPreCheck:" />
-            <Label layoutX="116.0" layoutY="262.0" text="升级前置条件:" textFill="#2c7ce4" />
+            <Label layoutX="153.0" layoutY="266.0" text="升级前置条件:" textFill="#2c7ce4" />
             <Label alignment="CENTER_RIGHT" layoutX="8.0" layoutY="290.0" prefHeight="17.0" prefWidth="161.0" text="VehicleEnergyReadyLevel:" />
-            <Label alignment="CENTER_RIGHT" layoutX="66.0" layoutY="312.0" prefHeight="17.0" prefWidth="100.0" text="蓄电池能量等级:" textFill="#2c7ce4" />
-            <TextField fx:id="vehicleEnergyReadyLevel_text_pre" layoutX="216.0" layoutY="285.0" promptText="0-7" />
+            <Label alignment="CENTER_RIGHT" layoutX="30.0" layoutY="312.0" prefHeight="17.0" prefWidth="136.0" text="蓄电池能量等级:" textFill="#2c7ce4" />
+            <TextField fx:id="vehicleEnergyReadyLevel_text_pre" layoutX="253.0" layoutY="289.0" promptText="0-7" />
             <Label alignment="CENTER_RIGHT" layoutX="106.0" layoutY="336.0" text="SysPwrMd:" />
-            <CheckBox fx:id="sysPwrMd_cb_pre_off" alignment="CENTER_RIGHT" layoutX="224.0" layoutY="335.0" mnemonicParsing="false" text="OFF" />
+            <CheckBox fx:id="sysPwrMd_cb_pre_off" alignment="CENTER_RIGHT" layoutX="261.0" layoutY="339.0" mnemonicParsing="false" text="OFF" />
             <Label alignment="CENTER_RIGHT" layoutX="95.0" layoutY="353.0" prefHeight="17.0" prefWidth="74.0" text="电源模式:" textFill="#2c7ce4" />
-            <CheckBox fx:id="sysPwrMd_cb_pre_acc" alignment="CENTER_RIGHT" layoutX="298.0" layoutY="335.0" mnemonicParsing="false" text="ACC" />
-            <CheckBox fx:id="sysPwrMd_cb_pre_on" alignment="CENTER_RIGHT" layoutX="374.0" layoutY="335.0" mnemonicParsing="false" text="ON" />
-            <CheckBox fx:id="sysPwrMd_cb_pre_crank" alignment="CENTER_RIGHT" layoutX="447.0" layoutY="335.0" mnemonicParsing="false" text="CRANK" />
+            <CheckBox fx:id="sysPwrMd_cb_pre_acc" alignment="CENTER_RIGHT" layoutX="335.0" layoutY="339.0" mnemonicParsing="false" text="ACC" />
+            <CheckBox fx:id="sysPwrMd_cb_pre_on" alignment="CENTER_RIGHT" layoutX="411.0" layoutY="339.0" mnemonicParsing="false" text="ON" />
+            <CheckBox fx:id="sysPwrMd_cb_pre_crank" alignment="CENTER_RIGHT" layoutX="484.0" layoutY="339.0" mnemonicParsing="false" text="CRANK" />
             <Label alignment="CENTER_RIGHT" layoutX="93.0" layoutY="378.0" text="TrShftLvrPos:" />
             <Label alignment="CENTER_RIGHT" layoutX="94.0" layoutY="395.0" prefHeight="17.0" prefWidth="74.0" text="档位:" textFill="#2c7ce4" />
-            <CheckBox fx:id="trShftLvrPos_cb_pre_r" alignment="CENTER_RIGHT" layoutX="222.0" layoutY="378.0" mnemonicParsing="false" text="R" />
-            <CheckBox fx:id="trShftLvrPos_cb_pre_n" alignment="CENTER_RIGHT" layoutX="296.0" layoutY="378.0" mnemonicParsing="false" text="N" />
-            <CheckBox fx:id="trShftLvrPos_cb_pre_p" alignment="CENTER_RIGHT" layoutX="372.0" layoutY="378.0" mnemonicParsing="false" text="P" />
-            <CheckBox fx:id="trShftLvrPos_cb_pre_d" alignment="CENTER_RIGHT" layoutX="445.0" layoutY="378.0" mnemonicParsing="false" text="D" />
+            <CheckBox fx:id="trShftLvrPos_cb_pre_r" alignment="CENTER_RIGHT" layoutX="259.0" layoutY="382.0" mnemonicParsing="false" text="R" />
+            <CheckBox fx:id="trShftLvrPos_cb_pre_n" alignment="CENTER_RIGHT" layoutX="333.0" layoutY="382.0" mnemonicParsing="false" text="N" />
+            <CheckBox fx:id="trShftLvrPos_cb_pre_p" alignment="CENTER_RIGHT" layoutX="409.0" layoutY="382.0" mnemonicParsing="false" text="P" />
+            <CheckBox fx:id="trShftLvrPos_cb_pre_d" alignment="CENTER_RIGHT" layoutX="482.0" layoutY="382.0" mnemonicParsing="false" text="D" />
             <Label alignment="CENTER_RIGHT" layoutX="94.0" layoutY="517.0" prefHeight="17.0" prefWidth="74.0" text="EPTRdy:" />
-            <Label alignment="CENTER_RIGHT" layoutX="59.0" layoutY="534.0" prefHeight="17.0" prefWidth="109.0" text="动力总成就绪状态:" textFill="#2c7ce4" />
-            <RadioButton fx:id="ePTRdy_rd_pre_y" alignment="CENTER_RIGHT" layoutX="211.0" layoutY="517.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="52.0" text="就绪">
+            <Label alignment="CENTER_RIGHT" layoutX="31.0" layoutY="534.0" prefHeight="17.0" prefWidth="137.0" text="动力总成就绪状态:" textFill="#2c7ce4" />
+            <RadioButton fx:id="ePTRdy_rd_pre_y" alignment="CENTER_RIGHT" layoutX="248.0" layoutY="521.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="65.0" text="就绪">
                <toggleGroup>
                   <ToggleGroup fx:id="ePTRdy_rd_pre_group" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="ePTRdy_rd_pre_n" alignment="CENTER_RIGHT" layoutX="285.0" layoutY="517.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="70.0" text="未就绪" toggleGroup="$ePTRdy_rd_pre_group" />
+            <RadioButton fx:id="ePTRdy_rd_pre_n" alignment="CENTER_RIGHT" layoutX="355.0" layoutY="522.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="95.0" text="未就绪" toggleGroup="$ePTRdy_rd_pre_group" />
             <Label alignment="CENTER_RIGHT" layoutX="74.0" layoutY="415.0" text="VehSpdAvgDrvn:" />
             <Label alignment="CENTER_RIGHT" layoutX="95.0" layoutY="432.0" prefHeight="17.0" prefWidth="74.0" text="车速:" textFill="#2c7ce4" />
-            <TextField fx:id="vehSpdAvgDrvn_text_pre" layoutX="207.0" layoutY="410.0" promptText="1-100" />
-            <Label alignment="CENTER_RIGHT" layoutX="376.0" layoutY="415.0" text="km/h" />
+            <TextField fx:id="vehSpdAvgDrvn_text_pre" layoutX="244.0" layoutY="414.0" promptText="1-100" />
+            <Label alignment="CENTER_RIGHT" layoutX="440.0" layoutY="419.0" text="km/h" />
             <Label alignment="CENTER_RIGHT" layoutX="94.0" layoutY="558.0" prefHeight="17.0" prefWidth="74.0" text="ExtnlTstrDet:" />
             <Label alignment="CENTER_RIGHT" layoutX="59.0" layoutY="575.0" prefHeight="17.0" prefWidth="109.0" text="诊断仪接入:" textFill="#2c7ce4" />
-            <RadioButton fx:id="extnlTstrDet_rd_pre_y" alignment="CENTER_RIGHT" layoutX="211.0" layoutY="558.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="68.0" text="已接入">
+            <RadioButton fx:id="extnlTstrDet_rd_pre_y" alignment="CENTER_RIGHT" layoutX="248.0" layoutY="562.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="93.0" text="已接入">
                <toggleGroup>
                   <ToggleGroup fx:id="extnlTstrDet_rd_pre_group" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="extnlTstrDet_rd_pre_n" alignment="CENTER_RIGHT" layoutX="285.0" layoutY="558.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="68.0" text="未接入" toggleGroup="$extnlTstrDet_rd_pre_group" />
+            <RadioButton fx:id="extnlTstrDet_rd_pre_n" alignment="CENTER_RIGHT" layoutX="355.0" layoutY="562.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="89.0" text="未接入" toggleGroup="$extnlTstrDet_rd_pre_group" />
             <Label alignment="CENTER_RIGHT" layoutX="64.0" layoutY="486.0" text="BMSPackSOCDsp:" />
-            <Label alignment="CENTER_RIGHT" layoutX="79.0" layoutY="500.0" prefHeight="17.0" prefWidth="88.0" text="动力电池电量:" textFill="#2c7ce4" />
-            <TextField fx:id="bMSPackSOCDsp_text_pre" layoutX="208.0" layoutY="481.0" promptText="0-100" />
-            <Label alignment="CENTER_RIGHT" layoutX="377.0" layoutY="486.0" text="\%" />
+            <Label alignment="CENTER_RIGHT" layoutX="56.0" layoutY="500.0" prefHeight="17.0" prefWidth="111.0" text="动力电池电量:" textFill="#2c7ce4" />
+            <TextField fx:id="bMSPackSOCDsp_text_pre" layoutX="245.0" layoutY="485.0" promptText="0-100" />
+            <Label alignment="CENTER_RIGHT" layoutX="436.0" layoutY="490.0" text="\%" />
             <Label alignment="CENTER_RIGHT" layoutX="63.0" layoutY="600.0" prefHeight="17.0" prefWidth="105.0" text="charging_state:" />
             <Label alignment="CENTER_RIGHT" layoutX="93.0" layoutY="617.0" prefHeight="17.0" prefWidth="74.0" text="充电类型:" textFill="#2c7ce4" />
-            <CheckBox fx:id="chargingState_cb_pre_kc" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="600.0" mnemonicParsing="false" text="快充" />
-            <CheckBox fx:id="chargingState_cb_pre_mc" alignment="CENTER_RIGHT" layoutX="300.0" layoutY="600.0" mnemonicParsing="false" text="慢充" />
-            <CheckBox fx:id="chargingState_cb_pre_wcd" alignment="CENTER_RIGHT" layoutX="376.0" layoutY="600.0" mnemonicParsing="false" text="未充电" />
+            <CheckBox fx:id="chargingState_cb_pre_kc" alignment="CENTER_RIGHT" layoutX="263.0" layoutY="604.0" mnemonicParsing="false" text="快充" />
+            <CheckBox fx:id="chargingState_cb_pre_mc" alignment="CENTER_RIGHT" layoutX="337.0" layoutY="604.0" mnemonicParsing="false" text="慢充" />
+            <CheckBox fx:id="chargingState_cb_pre_wcd" alignment="CENTER_RIGHT" layoutX="413.0" layoutY="604.0" mnemonicParsing="false" text="未充电" />
             <Label alignment="CENTER_RIGHT" layoutX="41.0" layoutY="634.0" prefHeight="17.0" prefWidth="127.0" text="charging_pile_type:" />
-            <Label alignment="CENTER_RIGHT" layoutX="93.0" layoutY="651.0" prefHeight="17.0" prefWidth="74.0" text="充电桩状态:" textFill="#2c7ce4" />
-            <CheckBox fx:id="chargingPileType_cb_pre_sz" alignment="CENTER_RIGHT" layoutX="226.0" layoutY="634.0" mnemonicParsing="false" text="私桩" />
-            <CheckBox fx:id="chargingPileType_cb_pre_gz" alignment="CENTER_RIGHT" layoutX="300.0" layoutY="634.0" mnemonicParsing="false" text="公桩" />
-            <CheckBox fx:id="chargingPileType_cb_pre_wcd" alignment="CENTER_RIGHT" layoutX="376.0" layoutY="634.0" mnemonicParsing="false" text="未充电" />
+            <Label alignment="CENTER_RIGHT" layoutX="75.0" layoutY="651.0" prefHeight="17.0" prefWidth="92.0" text="充电桩状态:" textFill="#2c7ce4" />
+            <CheckBox fx:id="chargingPileType_cb_pre_sz" alignment="CENTER_RIGHT" layoutX="263.0" layoutY="638.0" mnemonicParsing="false" text="私桩" />
+            <CheckBox fx:id="chargingPileType_cb_pre_gz" alignment="CENTER_RIGHT" layoutX="337.0" layoutY="638.0" mnemonicParsing="false" text="公桩" />
+            <CheckBox fx:id="chargingPileType_cb_pre_wcd" alignment="CENTER_RIGHT" layoutX="413.0" layoutY="638.0" mnemonicParsing="false" text="未充电" />
             <Label alignment="CENTER_RIGHT" layoutX="94.0" layoutY="668.0" prefHeight="17.0" prefWidth="74.0" text="RVSSts:" />
             <Label alignment="CENTER_RIGHT" layoutX="59.0" layoutY="685.0" prefHeight="17.0" prefWidth="109.0" text="远程启动状态:" textFill="#2c7ce4" />
-            <RadioButton fx:id="rVSSts_rd_pre_ycqdz" alignment="CENTER_RIGHT" layoutX="224.0" layoutY="668.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="95.0" text="远程启动中">
+            <RadioButton fx:id="rVSSts_rd_pre_ycqdz" alignment="CENTER_RIGHT" layoutX="261.0" layoutY="672.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="130.0" text="远程启动中">
                <toggleGroup>
                   <ToggleGroup fx:id="rVSSts_rd_pre_group" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="rVSSts_rd_pre_wycqd" alignment="CENTER_RIGHT" layoutX="361.0" layoutY="668.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="未远程启动" toggleGroup="$rVSSts_rd_pre_group" />
+            <RadioButton fx:id="rVSSts_rd_pre_wycqd" alignment="CENTER_RIGHT" layoutX="409.0" layoutY="672.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="118.0" text="未远程启动" toggleGroup="$rVSSts_rd_pre_group" />
             <Label alignment="CENTER_RIGHT" layoutX="113.0" layoutY="451.0" prefHeight="17.0" prefWidth="51.0" text="BatSOC:" />
             <Label alignment="CENTER_RIGHT" layoutX="73.0" layoutY="465.0" prefHeight="17.0" prefWidth="95.0" text="蓄电池电量:" textFill="#2c7ce4" />
-            <TextField fx:id="batSOC_text_pre" layoutX="208.0" layoutY="446.0" promptText="0-100" />
-            <Label alignment="CENTER_RIGHT" layoutX="377.0" layoutY="451.0" text="\%" />
+            <TextField fx:id="batSOC_text_pre" layoutX="245.0" layoutY="450.0" promptText="0-100" />
+            <Label alignment="CENTER_RIGHT" layoutX="436.0" layoutY="455.0" text="\%" />
             <Label alignment="CENTER_RIGHT" layoutX="64.0" layoutY="709.0" prefHeight="17.0" prefWidth="105.0" text="OneHitScene:" />
             <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="726.0" prefHeight="17.0" prefWidth="109.0" text="智能场景:" textFill="#2c7ce4" />
-            <RadioButton fx:id="oneHitScene_rd_pre_xqms" alignment="CENTER_RIGHT" layoutX="224.0" layoutY="709.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="小憩模式">
+            <RadioButton fx:id="oneHitScene_rd_pre_xqms" alignment="CENTER_RIGHT" layoutX="261.0" layoutY="713.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="小憩模式">
                <toggleGroup>
                   <ToggleGroup fx:id="oneHitScene_rd_pre_group" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="oneHitScene_rd_pre_cwms" alignment="CENTER_RIGHT" layoutX="321.0" layoutY="709.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="宠物模式" toggleGroup="$oneHitScene_rd_pre_group" />
-            <RadioButton fx:id="oneHitScene_rd_pre_syms" alignment="CENTER_RIGHT" layoutX="420.0" layoutY="709.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="宿营模式" toggleGroup="$oneHitScene_rd_pre_group" />
-            <RadioButton fx:id="oneHitScene_rd_pre_zxms" alignment="CENTER_RIGHT" layoutX="513.0" layoutY="709.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="尊享模式" toggleGroup="$oneHitScene_rd_pre_group" />
-            <RadioButton fx:id="oneHitScene_rd_pre_xcms" alignment="CENTER_RIGHT" layoutX="606.0" layoutY="709.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="洗车模式" toggleGroup="$oneHitScene_rd_pre_group" />
-            <RadioButton fx:id="oneHitScene_rd_pre_lyms" alignment="CENTER_RIGHT" layoutX="699.0" layoutY="709.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="露营模式" toggleGroup="$oneHitScene_rd_pre_group" />
+            <RadioButton fx:id="oneHitScene_rd_pre_cwms" alignment="CENTER_RIGHT" layoutX="358.0" layoutY="713.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="宠物模式" toggleGroup="$oneHitScene_rd_pre_group" />
+            <RadioButton fx:id="oneHitScene_rd_pre_syms" alignment="CENTER_RIGHT" layoutX="457.0" layoutY="713.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="宿营模式" toggleGroup="$oneHitScene_rd_pre_group" />
+            <RadioButton fx:id="oneHitScene_rd_pre_zxms" alignment="CENTER_RIGHT" layoutX="550.0" layoutY="713.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="尊享模式" toggleGroup="$oneHitScene_rd_pre_group" />
+            <RadioButton fx:id="oneHitScene_rd_pre_xcms" alignment="CENTER_RIGHT" layoutX="643.0" layoutY="713.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="洗车模式" toggleGroup="$oneHitScene_rd_pre_group" />
+            <RadioButton fx:id="oneHitScene_rd_pre_lyms" alignment="CENTER_RIGHT" layoutX="736.0" layoutY="713.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="露营模式" toggleGroup="$oneHitScene_rd_pre_group" />
             <Label alignment="CENTER_RIGHT" layoutX="65.0" layoutY="743.0" prefHeight="17.0" prefWidth="105.0" text="ChargeScene:" />
             <Label alignment="CENTER_RIGHT" layoutX="61.0" layoutY="760.0" prefHeight="17.0" prefWidth="109.0" text="充电场景:" textFill="#2c7ce4" />
-            <RadioButton fx:id="chargeScene_rd_pre_gzkc" alignment="CENTER_RIGHT" layoutX="225.0" layoutY="743.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="公桩快充">
+            <RadioButton fx:id="chargeScene_rd_pre_gzkc" alignment="CENTER_RIGHT" layoutX="262.0" layoutY="747.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="公桩快充">
                <toggleGroup>
                   <ToggleGroup fx:id="chargeScene_rd_pre_group" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="chargeScene_rd_pre_gzmc" alignment="CENTER_RIGHT" layoutX="322.0" layoutY="743.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="公桩慢充" toggleGroup="$chargeScene_rd_pre_group" />
-            <RadioButton fx:id="chargeScene_rd_pre_wxcd" alignment="CENTER_RIGHT" layoutX="421.0" layoutY="743.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="无线充电" toggleGroup="$chargeScene_rd_pre_group" />
-            <RadioButton fx:id="chargeScene_rd_pre_bcd" alignment="CENTER_RIGHT" layoutX="514.0" layoutY="743.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="74.0" text="不充电" toggleGroup="$chargeScene_rd_pre_group" />
-            <RadioButton fx:id="chargeScene_rd_pre_fd" alignment="CENTER_RIGHT" layoutX="607.0" layoutY="743.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="62.0" text="放电" toggleGroup="$chargeScene_rd_pre_group" />
+            <RadioButton fx:id="chargeScene_rd_pre_gzmc" alignment="CENTER_RIGHT" layoutX="359.0" layoutY="747.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="公桩慢充" toggleGroup="$chargeScene_rd_pre_group" />
+            <RadioButton fx:id="chargeScene_rd_pre_wxcd" alignment="CENTER_RIGHT" layoutX="458.0" layoutY="747.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="无线充电" toggleGroup="$chargeScene_rd_pre_group" />
+            <RadioButton fx:id="chargeScene_rd_pre_bcd" alignment="CENTER_RIGHT" layoutX="551.0" layoutY="747.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="74.0" text="不充电" toggleGroup="$chargeScene_rd_pre_group" />
+            <RadioButton fx:id="chargeScene_rd_pre_fd" alignment="CENTER_RIGHT" layoutX="644.0" layoutY="747.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="62.0" text="放电" toggleGroup="$chargeScene_rd_pre_group" />
             <Label alignment="CENTER_RIGHT" layoutX="23.0" layoutY="925.0" text="installReentryPreCheck:" />
             <Label layoutX="162.0" layoutY="925.0" text="升级中检查条件:" textFill="#2c7ce4" />
             <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="953.0" prefHeight="17.0" prefWidth="161.0" text="VehicleEnergyReadyLevel:" />
@@ -218,45 +218,45 @@
             <RadioButton fx:id="chargeScene_rd_reentry_fd" alignment="CENTER_RIGHT" layoutX="607.0" layoutY="1406.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="62.0" text="放电" toggleGroup="$chargeScene_rd_reentry_group" />
             <Separator layoutX="21.0" layoutY="1451.0" prefHeight="0.0" prefWidth="550.0" />
             <Label alignment="CENTER_RIGHT" layoutX="11.0" layoutY="1454.0" prefHeight="17.0" prefWidth="84.0" text="ecuUpdInfo:" />
-            <Label alignment="CENTER_RIGHT" layoutX="145.0" layoutY="219.0" text="&lt;=" />
-            <Label alignment="CENTER_RIGHT" layoutX="177.0" layoutY="415.0" text="&lt;=" />
-            <Label alignment="CENTER_RIGHT" layoutX="180.0" layoutY="486.0" text="&gt;=" />
-            <Label alignment="CENTER_RIGHT" layoutX="178.0" layoutY="451.0" text="&gt;=" />
+            <Label alignment="CENTER_RIGHT" layoutX="182.0" layoutY="223.0" text="&lt;=" />
+            <Label alignment="CENTER_RIGHT" layoutX="214.0" layoutY="419.0" text="&lt;=" />
+            <Label alignment="CENTER_RIGHT" layoutX="217.0" layoutY="490.0" text="&gt;=" />
+            <Label alignment="CENTER_RIGHT" layoutX="215.0" layoutY="455.0" text="&gt;=" />
             <Label alignment="CENTER_RIGHT" layoutX="64.0" layoutY="777.0" prefHeight="17.0" prefWidth="105.0" text="DrivingModeSta:" />
             <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="794.0" prefHeight="17.0" prefWidth="109.0" text="超级节能模式:" textFill="#2c7ce4" />
-            <RadioButton fx:id="drivingModeSta_rd_pre_cjjnmsqdz" alignment="CENTER_RIGHT" layoutX="227.0" layoutY="777.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="150.0" text="超级节能模式启动中">
+            <RadioButton fx:id="drivingModeSta_rd_pre_cjjnmsqdz" alignment="CENTER_RIGHT" layoutX="264.0" layoutY="781.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="150.0" text="超级节能模式启动中">
                <toggleGroup>
                   <ToggleGroup fx:id="DrivingModeSta_rd_pre_group" />
                </toggleGroup>
             </RadioButton>
             <Label alignment="CENTER_RIGHT" layoutX="56.0" layoutY="816.0" prefHeight="17.0" prefWidth="112.0" text="BattMaxEstCap:" />
-            <Label alignment="CENTER_RIGHT" layoutX="72.0" layoutY="830.0" prefHeight="17.0" prefWidth="95.0" text="最大可用电量:" textFill="#2c7ce4" />
-            <TextField fx:id="battMaxEstCap_text_pre" layoutX="212.0" layoutY="811.0" promptText="0-100" />
-            <Label alignment="CENTER_RIGHT" layoutX="381.0" layoutY="816.0" text="Ah" />
-            <Label alignment="CENTER_RIGHT" layoutX="182.0" layoutY="816.0" text="&gt;=" />
+            <Label alignment="CENTER_RIGHT" layoutX="62.0" layoutY="830.0" prefHeight="17.0" prefWidth="105.0" text="最大可用电量:" textFill="#2c7ce4" />
+            <TextField fx:id="battMaxEstCap_text_pre" layoutX="249.0" layoutY="815.0" promptText="0-100" />
+            <Label alignment="CENTER_RIGHT" layoutX="447.0" layoutY="822.0" text="Ah" />
+            <Label alignment="CENTER_RIGHT" layoutX="219.0" layoutY="820.0" text="&gt;=" />
             <Label alignment="CENTER_RIGHT" layoutX="55.0" layoutY="852.0" prefHeight="17.0" prefWidth="112.0" text="BattCurEstCap:" />
-            <Label alignment="CENTER_RIGHT" layoutX="70.0" layoutY="866.0" prefHeight="17.0" prefWidth="95.0" text="当前可用电量:" textFill="#2c7ce4" />
-            <TextField fx:id="battCurEstCap_text_pre" layoutX="211.0" layoutY="847.0" promptText="0-100" />
-            <Label alignment="CENTER_RIGHT" layoutX="380.0" layoutY="852.0" text="Ah" />
-            <Label alignment="CENTER_RIGHT" layoutX="181.0" layoutY="852.0" text="&gt;=" />
+            <Label alignment="CENTER_RIGHT" layoutX="52.0" layoutY="866.0" prefHeight="17.0" prefWidth="113.0" text="当前可用电量:" textFill="#2c7ce4" />
+            <TextField fx:id="battCurEstCap_text_pre" layoutX="248.0" layoutY="851.0" promptText="0-100" />
+            <Label alignment="CENTER_RIGHT" layoutX="447.0" layoutY="856.0" text="Ah" />
+            <Label alignment="CENTER_RIGHT" layoutX="218.0" layoutY="856.0" text="&gt;=" />
             <Label alignment="CENTER_RIGHT" layoutX="182.0" layoutY="1080.0" text="&lt;=" />
             <Label alignment="CENTER_RIGHT" layoutX="182.0" layoutY="1119.0" text="&gt;=" />
             <Label alignment="CENTER_RIGHT" layoutX="182.0" layoutY="1155.0" text="&gt;=" />
             <Button fx:id="saveDraft_btn" layoutX="269.0" layoutY="1783.0" mnemonicParsing="false" text="保存草稿" />
             <Button fx:id="buildJson_btn" layoutX="462.0" layoutY="1783.0" mnemonicParsing="false" text="生成json" />
-            <Label alignment="CENTER_RIGHT" layoutX="153.0" layoutY="137.0" text="!=" />
-            <Label alignment="CENTER_RIGHT" layoutX="153.0" layoutY="178.0" text="=" />
-            <Label alignment="CENTER_RIGHT" layoutX="181.0" layoutY="290.0" text="&lt;=" />
-            <Label alignment="CENTER_RIGHT" layoutX="187.0" layoutY="336.0" text="!=" />
-            <Label alignment="CENTER_RIGHT" layoutX="186.0" layoutY="379.0" text="=" />
-            <Label alignment="CENTER_RIGHT" layoutX="183.0" layoutY="518.0" text="=" />
-            <Label alignment="CENTER_RIGHT" layoutX="184.0" layoutY="559.0" text="=" />
-            <Label alignment="CENTER_RIGHT" layoutX="185.0" layoutY="601.0" text="!=" />
-            <Label alignment="CENTER_RIGHT" layoutX="186.0" layoutY="634.0" text="!=" />
-            <Label alignment="CENTER_RIGHT" layoutX="188.0" layoutY="669.0" text="=" />
-            <Label alignment="CENTER_RIGHT" layoutX="189.0" layoutY="710.0" text="!=" />
+            <Label alignment="CENTER_RIGHT" layoutX="190.0" layoutY="141.0" text="!=" />
+            <Label alignment="CENTER_RIGHT" layoutX="190.0" layoutY="182.0" text="=" />
+            <Label alignment="CENTER_RIGHT" layoutX="218.0" layoutY="294.0" text="&lt;=" />
+            <Label alignment="CENTER_RIGHT" layoutX="224.0" layoutY="340.0" text="!=" />
+            <Label alignment="CENTER_RIGHT" layoutX="223.0" layoutY="383.0" text="=" />
+            <Label alignment="CENTER_RIGHT" layoutX="220.0" layoutY="522.0" text="=" />
+            <Label alignment="CENTER_RIGHT" layoutX="221.0" layoutY="563.0" text="=" />
+            <Label alignment="CENTER_RIGHT" layoutX="222.0" layoutY="605.0" text="!=" />
+            <Label alignment="CENTER_RIGHT" layoutX="223.0" layoutY="638.0" text="!=" />
+            <Label alignment="CENTER_RIGHT" layoutX="225.0" layoutY="673.0" text="=" />
+            <Label alignment="CENTER_RIGHT" layoutX="226.0" layoutY="714.0" text="!=" />
             <Label alignment="CENTER_RIGHT" layoutX="190.0" layoutY="744.0" text="=" />
-            <Label alignment="CENTER_RIGHT" layoutX="188.0" layoutY="778.0" text="!=" />
+            <Label alignment="CENTER_RIGHT" layoutX="225.0" layoutY="782.0" text="!=" />
             <Label alignment="CENTER_RIGHT" layoutX="186.0" layoutY="953.0" text="&lt;=" />
             <Label alignment="CENTER_RIGHT" layoutX="97.0" layoutY="1017.0" prefHeight="17.0" prefWidth="74.0" text="电源模式:" textFill="#2c7ce4" />
             <Label alignment="CENTER_RIGHT" layoutX="187.0" layoutY="1000.0" text="!=" />
