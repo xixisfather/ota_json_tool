@@ -888,15 +888,18 @@ public class TaskDescJsonConfigController implements Initializable {
         if (CollectionUtils.isNotEmpty(installPopupPolices)) {
             for (InstallCondition installCondition : installPopupPolices) {
                 if (StringUtils.equals(ToolContants.SYS_PWR_MD, installCondition.getType())) {
-                    if (StringUtils.equals(sysPwrMd_cb_up_off.getText(), installCondition.getValue())) {
-                        sysPwrMd_cb_up_off.setSelected(true);
-                    } else if (StringUtils.equals(sysPwrMd_cb_up_acc.getText(), installCondition.getValue())) {
-                        sysPwrMd_cb_up_acc.setSelected(true);
-                    } else if (StringUtils.equals(sysPwrMd_cb_up_on.getText(), installCondition.getValue())) {
-                        sysPwrMd_cb_up_on.setSelected(true);
-                    } else if (StringUtils.equals(sysPwrMd_cb_up_crank.getText(), installCondition.getValue())) {
-                        sysPwrMd_cb_up_crank.setSelected(true);
+                    for(String value : installCondition.getValue().split(",")) {
+                        if (StringUtils.equals(sysPwrMd_cb_up_off.getText(), value)) {
+                            sysPwrMd_cb_up_off.setSelected(true);
+                        } else if (StringUtils.equals(sysPwrMd_cb_up_acc.getText(), value)) {
+                            sysPwrMd_cb_up_acc.setSelected(true);
+                        } else if (StringUtils.equals(sysPwrMd_cb_up_on.getText(), value)) {
+                            sysPwrMd_cb_up_on.setSelected(true);
+                        } else if (StringUtils.equals(sysPwrMd_cb_up_crank.getText(), value)) {
+                            sysPwrMd_cb_up_crank.setSelected(true);
+                        }
                     }
+
                 } else if (StringUtils.equals(ToolContants.TR_SHFT_LVR_POS, installCondition.getType())) {
                     if (StringUtils.equals(trShftLvrPos_cb_up_r.getText(), installCondition.getValue())) {
                         trShftLvrPos_cb_up_r.setSelected(true);
