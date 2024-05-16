@@ -537,10 +537,10 @@ public class TaskDescJsonConfigController implements Initializable {
             File file = fileChooser.showOpenDialog(new Stage());
             try {
                 List<EcuUpdInfo> ecuUpdInfos = taskDescService.buildEcuInfoListFromExcle(file.getAbsolutePath());
-                if(ecu_tp.getTabs().size() > 1) {
+                if (ecu_tp.getTabs().size() > 1) {
                     ecu_tp.getTabs().remove(1, ecu_tp.getTabs().size());
                 }
-                if(module_tp.getTabs().size() > 1) {
+                if (module_tp.getTabs().size() > 1) {
                     module_tp.getTabs().remove(1, module_tp.getTabs().size());
                 }
                 loadEcuUpdInfo(ecuUpdInfos);
@@ -680,24 +680,28 @@ public class TaskDescJsonConfigController implements Initializable {
         if (CollectionUtils.isNotEmpty(installPreCheck)) {
             for (InstallCondition installCondition : installPreCheck) {
                 if (StringUtils.equals(ToolContants.SYS_PWR_MD, installCondition.getType())) {
-                    if (StringUtils.equals(sysPwrMd_cb_pre_off.getText(), installCondition.getValue())) {
-                        sysPwrMd_cb_pre_off.setSelected(true);
-                    } else if (StringUtils.equals(sysPwrMd_cb_pre_acc.getText(), installCondition.getValue())) {
-                        sysPwrMd_cb_pre_acc.setSelected(true);
-                    } else if (StringUtils.equals(sysPwrMd_cb_pre_on.getText(), installCondition.getValue())) {
-                        sysPwrMd_cb_pre_on.setSelected(true);
-                    } else if (StringUtils.equals(sysPwrMd_cb_pre_crank.getText(), installCondition.getValue())) {
-                        sysPwrMd_cb_pre_crank.setSelected(true);
+                    for (String value : installCondition.getValue().split(",")) {
+                        if (StringUtils.equals(sysPwrMd_cb_pre_off.getText(), value)) {
+                            sysPwrMd_cb_pre_off.setSelected(true);
+                        } else if (StringUtils.equals(sysPwrMd_cb_pre_acc.getText(), value)) {
+                            sysPwrMd_cb_pre_acc.setSelected(true);
+                        } else if (StringUtils.equals(sysPwrMd_cb_pre_on.getText(), value)) {
+                            sysPwrMd_cb_pre_on.setSelected(true);
+                        } else if (StringUtils.equals(sysPwrMd_cb_pre_crank.getText(), value)) {
+                            sysPwrMd_cb_pre_crank.setSelected(true);
+                        }
                     }
                 } else if (StringUtils.equals(ToolContants.TR_SHFT_LVR_POS, installCondition.getType())) {
-                    if (StringUtils.equals(trShftLvrPos_cb_pre_r.getText(), installCondition.getValue())) {
-                        trShftLvrPos_cb_pre_r.setSelected(true);
-                    } else if (StringUtils.equals(trShftLvrPos_cb_pre_n.getText(), installCondition.getValue())) {
-                        trShftLvrPos_cb_pre_n.setSelected(true);
-                    } else if (StringUtils.equals(trShftLvrPos_cb_pre_p.getText(), installCondition.getValue())) {
-                        trShftLvrPos_cb_pre_p.setSelected(true);
-                    } else if (StringUtils.equals(trShftLvrPos_cb_pre_d.getText(), installCondition.getValue())) {
-                        trShftLvrPos_cb_pre_d.setSelected(true);
+                    for (String value : installCondition.getValue().split(",")) {
+                        if (StringUtils.equals(trShftLvrPos_cb_pre_r.getText(), value)) {
+                            trShftLvrPos_cb_pre_r.setSelected(true);
+                        } else if (StringUtils.equals(trShftLvrPos_cb_pre_n.getText(), value)) {
+                            trShftLvrPos_cb_pre_n.setSelected(true);
+                        } else if (StringUtils.equals(trShftLvrPos_cb_pre_p.getText(), value)) {
+                            trShftLvrPos_cb_pre_p.setSelected(true);
+                        } else if (StringUtils.equals(trShftLvrPos_cb_pre_d.getText(), value)) {
+                            trShftLvrPos_cb_pre_d.setSelected(true);
+                        }
                     }
                 } else if (StringUtils.equals(ToolContants.VEH_SPD_AVG_DRVN, installCondition.getType())) {
                     vehSpdAvgDrvn_text_pre.setText(installCondition.getValue());
@@ -720,20 +724,24 @@ public class TaskDescJsonConfigController implements Initializable {
                         extnlTstrDet_rd_pre_n.setSelected(true);
                     }
                 } else if (StringUtils.equals(ToolContants.CHARGING_STATE, installCondition.getType())) {
-                    if (StringUtils.equals(ToolContants.CHARGING_STATE_FAST_CHARGING, installCondition.getValue())) {
-                        chargingState_cb_pre_kc.setSelected(true);
-                    } else if (StringUtils.equals(ToolContants.CHARGING_STATE_SLOW_CHARGING, installCondition.getValue())) {
-                        chargingState_cb_pre_mc.setSelected(true);
-                    } else if (StringUtils.equals(ToolContants.CHARGING_STATE_NO_CHARGING, installCondition.getValue())) {
-                        chargingState_cb_pre_wcd.setSelected(true);
+                    for (String value : installCondition.getValue().split(",")) {
+                        if (StringUtils.equals(ToolContants.CHARGING_STATE_FAST_CHARGING, value)) {
+                            chargingState_cb_pre_kc.setSelected(true);
+                        } else if (StringUtils.equals(ToolContants.CHARGING_STATE_SLOW_CHARGING, value)) {
+                            chargingState_cb_pre_mc.setSelected(true);
+                        } else if (StringUtils.equals(ToolContants.CHARGING_STATE_NO_CHARGING, value)) {
+                            chargingState_cb_pre_wcd.setSelected(true);
+                        }
                     }
                 } else if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE, installCondition.getType())) {
-                    if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE_PRIVATE, installCondition.getValue())) {
-                        chargingPileType_cb_pre_sz.setSelected(true);
-                    } else if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE_PUBLIC, installCondition.getValue())) {
-                        chargingPileType_cb_pre_gz.setSelected(true);
-                    } else if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE_NO_CONNECT, installCondition.getValue())) {
-                        chargingPileType_cb_pre_wcd.setSelected(true);
+                    for (String value : installCondition.getValue().split(",")) {
+                        if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE_PRIVATE, value)) {
+                            chargingPileType_cb_pre_sz.setSelected(true);
+                        } else if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE_PUBLIC, value)) {
+                            chargingPileType_cb_pre_gz.setSelected(true);
+                        } else if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE_NO_CONNECT, value)) {
+                            chargingPileType_cb_pre_wcd.setSelected(true);
+                        }
                     }
                 } else if (StringUtils.equals(ToolContants.RVS_STS, installCondition.getType())) {
                     if (StringUtils.equals(ToolContants.RVS_STS_ON, installCondition.getValue())) {
@@ -784,24 +792,28 @@ public class TaskDescJsonConfigController implements Initializable {
         if (CollectionUtils.isNotEmpty(installReentryPreCheck)) {
             for (InstallCondition installCondition : installReentryPreCheck) {
                 if (StringUtils.equals(ToolContants.SYS_PWR_MD, installCondition.getType())) {
-                    if (StringUtils.equals(sysPwrMd_cb_reentry_off.getText(), installCondition.getValue())) {
-                        sysPwrMd_cb_reentry_off.setSelected(true);
-                    } else if (StringUtils.equals(sysPwrMd_cb_reentry_acc.getText(), installCondition.getValue())) {
-                        sysPwrMd_cb_reentry_acc.setSelected(true);
-                    } else if (StringUtils.equals(sysPwrMd_cb_reentry_on.getText(), installCondition.getValue())) {
-                        sysPwrMd_cb_reentry_on.setSelected(true);
-                    } else if (StringUtils.equals(sysPwrMd_cb_reentry_crank.getText(), installCondition.getValue())) {
-                        sysPwrMd_cb_reentry_crank.setSelected(true);
+                    for (String value : installCondition.getValue().split(",")) {
+                        if (StringUtils.equals(sysPwrMd_cb_reentry_off.getText(), value)) {
+                            sysPwrMd_cb_reentry_off.setSelected(true);
+                        } else if (StringUtils.equals(sysPwrMd_cb_reentry_acc.getText(), value)) {
+                            sysPwrMd_cb_reentry_acc.setSelected(true);
+                        } else if (StringUtils.equals(sysPwrMd_cb_reentry_on.getText(), value)) {
+                            sysPwrMd_cb_reentry_on.setSelected(true);
+                        } else if (StringUtils.equals(sysPwrMd_cb_reentry_crank.getText(), value)) {
+                            sysPwrMd_cb_reentry_crank.setSelected(true);
+                        }
                     }
                 } else if (StringUtils.equals(ToolContants.TR_SHFT_LVR_POS, installCondition.getType())) {
-                    if (StringUtils.equals(trShftLvrPos_cb_reentry_r.getText(), installCondition.getValue())) {
-                        trShftLvrPos_cb_reentry_r.setSelected(true);
-                    } else if (StringUtils.equals(trShftLvrPos_cb_reentry_n.getText(), installCondition.getValue())) {
-                        trShftLvrPos_cb_reentry_n.setSelected(true);
-                    } else if (StringUtils.equals(trShftLvrPos_cb_reentry_p.getText(), installCondition.getValue())) {
-                        trShftLvrPos_cb_reentry_p.setSelected(true);
-                    } else if (StringUtils.equals(trShftLvrPos_cb_reentry_d.getText(), installCondition.getValue())) {
-                        trShftLvrPos_cb_reentry_d.setSelected(true);
+                    for (String value : installCondition.getValue().split(",")) {
+                        if (StringUtils.equals(trShftLvrPos_cb_reentry_r.getText(), value)) {
+                            trShftLvrPos_cb_reentry_r.setSelected(true);
+                        } else if (StringUtils.equals(trShftLvrPos_cb_reentry_n.getText(), value)) {
+                            trShftLvrPos_cb_reentry_n.setSelected(true);
+                        } else if (StringUtils.equals(trShftLvrPos_cb_reentry_p.getText(), value)) {
+                            trShftLvrPos_cb_reentry_p.setSelected(true);
+                        } else if (StringUtils.equals(trShftLvrPos_cb_reentry_d.getText(), value)) {
+                            trShftLvrPos_cb_reentry_d.setSelected(true);
+                        }
                     }
                 } else if (StringUtils.equals(ToolContants.VEH_SPD_AVG_DRVN, installCondition.getType())) {
                     vehSpdAvgDrvn_text_reentry.setText(installCondition.getValue());
@@ -824,20 +836,24 @@ public class TaskDescJsonConfigController implements Initializable {
                         extnlTstrDet_rd_reentry_n.setSelected(true);
                     }
                 } else if (StringUtils.equals(ToolContants.CHARGING_STATE, installCondition.getType())) {
-                    if (StringUtils.equals(ToolContants.CHARGING_STATE_FAST_CHARGING, installCondition.getValue())) {
-                        chargingState_cb_reentry_kc.setSelected(true);
-                    } else if (StringUtils.equals(ToolContants.CHARGING_STATE_SLOW_CHARGING, installCondition.getValue())) {
-                        chargingState_cb_reentry_mc.setSelected(true);
-                    } else if (StringUtils.equals(ToolContants.CHARGING_STATE_NO_CHARGING, installCondition.getValue())) {
-                        chargingState_cb_reentry_wcd.setSelected(true);
+                    for (String value : installCondition.getValue().split(",")) {
+                        if (StringUtils.equals(ToolContants.CHARGING_STATE_FAST_CHARGING, value)) {
+                            chargingState_cb_reentry_kc.setSelected(true);
+                        } else if (StringUtils.equals(ToolContants.CHARGING_STATE_SLOW_CHARGING, value)) {
+                            chargingState_cb_reentry_mc.setSelected(true);
+                        } else if (StringUtils.equals(ToolContants.CHARGING_STATE_NO_CHARGING, value)) {
+                            chargingState_cb_reentry_wcd.setSelected(true);
+                        }
                     }
                 } else if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE, installCondition.getType())) {
-                    if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE_PRIVATE, installCondition.getValue())) {
-                        chargingPileType_cb_reentry_sz.setSelected(true);
-                    } else if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE_PUBLIC, installCondition.getValue())) {
-                        chargingPileType_cb_reentry_gz.setSelected(true);
-                    } else if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE_NO_CONNECT, installCondition.getValue())) {
-                        chargingPileType_cb_reentry_wcd.setSelected(true);
+                    for (String value : installCondition.getValue().split(",")) {
+                        if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE_PRIVATE, value)) {
+                            chargingPileType_cb_reentry_sz.setSelected(true);
+                        } else if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE_PUBLIC, value)) {
+                            chargingPileType_cb_reentry_gz.setSelected(true);
+                        } else if (StringUtils.equals(ToolContants.CHARGING_PILE_TYPE_NO_CONNECT, value)) {
+                            chargingPileType_cb_reentry_wcd.setSelected(true);
+                        }
                     }
                 } else if (StringUtils.equals(ToolContants.RVS_STS, installCondition.getType())) {
                     if (StringUtils.equals(ToolContants.RVS_STS_ON, installCondition.getValue())) {
@@ -888,7 +904,7 @@ public class TaskDescJsonConfigController implements Initializable {
         if (CollectionUtils.isNotEmpty(installPopupPolices)) {
             for (InstallCondition installCondition : installPopupPolices) {
                 if (StringUtils.equals(ToolContants.SYS_PWR_MD, installCondition.getType())) {
-                    for(String value : installCondition.getValue().split(",")) {
+                    for (String value : installCondition.getValue().split(",")) {
                         if (StringUtils.equals(sysPwrMd_cb_up_off.getText(), value)) {
                             sysPwrMd_cb_up_off.setSelected(true);
                         } else if (StringUtils.equals(sysPwrMd_cb_up_acc.getText(), value)) {
@@ -901,14 +917,16 @@ public class TaskDescJsonConfigController implements Initializable {
                     }
 
                 } else if (StringUtils.equals(ToolContants.TR_SHFT_LVR_POS, installCondition.getType())) {
-                    if (StringUtils.equals(trShftLvrPos_cb_up_r.getText(), installCondition.getValue())) {
-                        trShftLvrPos_cb_up_r.setSelected(true);
-                    } else if (StringUtils.equals(trShftLvrPos_cb_up_n.getText(), installCondition.getValue())) {
-                        trShftLvrPos_cb_up_n.setSelected(true);
-                    } else if (StringUtils.equals(trShftLvrPos_cb_up_p.getText(), installCondition.getValue())) {
-                        trShftLvrPos_cb_up_p.setSelected(true);
-                    } else if (StringUtils.equals(trShftLvrPos_cb_up_d.getText(), installCondition.getValue())) {
-                        trShftLvrPos_cb_up_d.setSelected(true);
+                    for (String value : installCondition.getValue().split(",")) {
+                        if (StringUtils.equals(trShftLvrPos_cb_up_r.getText(), value)) {
+                            trShftLvrPos_cb_up_r.setSelected(true);
+                        } else if (StringUtils.equals(trShftLvrPos_cb_up_n.getText(), value)) {
+                            trShftLvrPos_cb_up_n.setSelected(true);
+                        } else if (StringUtils.equals(trShftLvrPos_cb_up_p.getText(), value)) {
+                            trShftLvrPos_cb_up_p.setSelected(true);
+                        } else if (StringUtils.equals(trShftLvrPos_cb_up_d.getText(), value)) {
+                            trShftLvrPos_cb_up_d.setSelected(true);
+                        }
                     }
                 } else if (StringUtils.equals(ToolContants.VEH_SPD_AVG_DRVN, installCondition.getType())) {
                     vehSpdAvgDrvn_text_up.setText(installCondition.getValue());
