@@ -110,27 +110,27 @@
             <Label alignment="CENTER_RIGHT" layoutX="457.0" layoutY="457.0" text="\%" />
             <Label alignment="CENTER_RIGHT" layoutX="64.0" layoutY="709.0" prefHeight="17.0" prefWidth="105.0" text="OneHitScene:" />
             <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="726.0" prefHeight="17.0" prefWidth="109.0" text="智能场景:" textFill="#2c7ce4" />
-            <RadioButton fx:id="oneHitScene_rd_pre_xqms" alignment="CENTER_RIGHT" layoutX="261.0" layoutY="713.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="小憩模式">
+            <RadioButton fx:id="oneHitScene_rd_pre_xqms" alignment="CENTER_RIGHT" layoutX="261.0" layoutY="713.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="109.0" text="小憩模式">
                <toggleGroup>
                   <ToggleGroup fx:id="oneHitScene_rd_pre_group" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="oneHitScene_rd_pre_cwms" alignment="CENTER_RIGHT" layoutX="358.0" layoutY="713.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="宠物模式" toggleGroup="$oneHitScene_rd_pre_group" />
-            <RadioButton fx:id="oneHitScene_rd_pre_syms" alignment="CENTER_RIGHT" layoutX="457.0" layoutY="713.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="宿营模式" toggleGroup="$oneHitScene_rd_pre_group" />
-            <RadioButton fx:id="oneHitScene_rd_pre_zxms" alignment="CENTER_RIGHT" layoutX="550.0" layoutY="713.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="尊享模式" toggleGroup="$oneHitScene_rd_pre_group" />
-            <RadioButton fx:id="oneHitScene_rd_pre_xcms" alignment="CENTER_RIGHT" layoutX="643.0" layoutY="713.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="洗车模式" toggleGroup="$oneHitScene_rd_pre_group" />
-            <RadioButton fx:id="oneHitScene_rd_pre_lyms" alignment="CENTER_RIGHT" layoutX="736.0" layoutY="713.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="露营模式" toggleGroup="$oneHitScene_rd_pre_group" />
+            <RadioButton fx:id="oneHitScene_rd_pre_cwms" alignment="CENTER_RIGHT" layoutX="379.0" layoutY="714.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="107.0" text="宠物模式" toggleGroup="$oneHitScene_rd_pre_group" />
+            <RadioButton fx:id="oneHitScene_rd_pre_syms" alignment="CENTER_RIGHT" layoutX="490.0" layoutY="714.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="121.0" text="宿营模式" toggleGroup="$oneHitScene_rd_pre_group" />
+            <RadioButton fx:id="oneHitScene_rd_pre_zxms" alignment="CENTER_RIGHT" layoutX="614.0" layoutY="714.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="110.0" text="尊享模式" toggleGroup="$oneHitScene_rd_pre_group" />
+            <RadioButton fx:id="oneHitScene_rd_pre_xcms" alignment="CENTER_RIGHT" layoutX="727.0" layoutY="714.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="107.0" text="洗车模式" toggleGroup="$oneHitScene_rd_pre_group" />
+            <RadioButton fx:id="oneHitScene_rd_pre_lyms" alignment="CENTER_RIGHT" layoutX="851.0" layoutY="713.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="113.0" text="露营模式" toggleGroup="$oneHitScene_rd_pre_group" />
             <Label alignment="CENTER_RIGHT" layoutX="65.0" layoutY="743.0" prefHeight="17.0" prefWidth="105.0" text="ChargeScene:" />
             <Label alignment="CENTER_RIGHT" layoutX="61.0" layoutY="760.0" prefHeight="17.0" prefWidth="109.0" text="充电场景:" textFill="#2c7ce4" />
-            <RadioButton fx:id="chargeScene_rd_pre_gzkc" alignment="CENTER_RIGHT" layoutX="262.0" layoutY="747.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="公桩快充">
+            <RadioButton fx:id="chargeScene_rd_pre_gzkc" alignment="CENTER_RIGHT" layoutX="262.0" layoutY="747.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="106.0" text="公桩快充">
                <toggleGroup>
                   <ToggleGroup fx:id="chargeScene_rd_pre_group" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="chargeScene_rd_pre_gzmc" alignment="CENTER_RIGHT" layoutX="359.0" layoutY="747.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="公桩慢充" toggleGroup="$chargeScene_rd_pre_group" />
-            <RadioButton fx:id="chargeScene_rd_pre_wxcd" alignment="CENTER_RIGHT" layoutX="458.0" layoutY="747.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="81.0" text="无线充电" toggleGroup="$chargeScene_rd_pre_group" />
-            <RadioButton fx:id="chargeScene_rd_pre_bcd" alignment="CENTER_RIGHT" layoutX="551.0" layoutY="747.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="74.0" text="不充电" toggleGroup="$chargeScene_rd_pre_group" />
-            <RadioButton fx:id="chargeScene_rd_pre_fd" alignment="CENTER_RIGHT" layoutX="644.0" layoutY="747.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="62.0" text="放电" toggleGroup="$chargeScene_rd_pre_group" />
+            <RadioButton fx:id="chargeScene_rd_pre_gzmc" alignment="CENTER_RIGHT" layoutX="386.0" layoutY="747.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="110.0" text="公桩慢充" toggleGroup="$chargeScene_rd_pre_group" />
+            <RadioButton fx:id="chargeScene_rd_pre_wxcd" alignment="CENTER_RIGHT" layoutX="513.0" layoutY="747.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="106.0" text="无线充电" toggleGroup="$chargeScene_rd_pre_group" />
+            <RadioButton fx:id="chargeScene_rd_pre_bcd" alignment="CENTER_RIGHT" layoutX="632.0" layoutY="747.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="74.0" text="不充电" toggleGroup="$chargeScene_rd_pre_group" />
+            <RadioButton fx:id="chargeScene_rd_pre_fd" alignment="CENTER_RIGHT" layoutX="715.0" layoutY="747.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="62.0" text="放电" toggleGroup="$chargeScene_rd_pre_group" />
             <Label alignment="CENTER_RIGHT" layoutX="23.0" layoutY="925.0" text="installReentryPreCheck:" />
             <Label layoutX="162.0" layoutY="925.0" text="升级中检查条件:" textFill="#2c7ce4" />
             <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="953.0" prefHeight="17.0" prefWidth="161.0" text="VehicleEnergyReadyLevel:" />
@@ -232,12 +232,12 @@
             <Label alignment="CENTER_RIGHT" layoutX="56.0" layoutY="816.0" prefHeight="17.0" prefWidth="112.0" text="BattMaxEstCap:" />
             <Label alignment="CENTER_RIGHT" layoutX="62.0" layoutY="830.0" prefHeight="17.0" prefWidth="105.0" text="最大可用电量:" textFill="#2c7ce4" />
             <TextField fx:id="battMaxEstCap_text_pre" layoutX="249.0" layoutY="815.0" promptText="0-100" />
-            <Label alignment="CENTER_RIGHT" layoutX="447.0" layoutY="822.0" text="Ah" />
+            <Label alignment="CENTER_RIGHT" layoutX="460.0" layoutY="822.0" text="Ah" />
             <Label alignment="CENTER_RIGHT" layoutX="219.0" layoutY="820.0" text="&gt;=" />
             <Label alignment="CENTER_RIGHT" layoutX="55.0" layoutY="852.0" prefHeight="17.0" prefWidth="112.0" text="BattCurEstCap:" />
             <Label alignment="CENTER_RIGHT" layoutX="52.0" layoutY="866.0" prefHeight="17.0" prefWidth="113.0" text="当前可用电量:" textFill="#2c7ce4" />
             <TextField fx:id="battCurEstCap_text_pre" layoutX="248.0" layoutY="851.0" promptText="0-100" />
-            <Label alignment="CENTER_RIGHT" layoutX="447.0" layoutY="856.0" text="Ah" />
+            <Label alignment="CENTER_RIGHT" layoutX="460.0" layoutY="856.0" text="Ah" />
             <Label alignment="CENTER_RIGHT" layoutX="218.0" layoutY="856.0" text="&gt;=" />
             <Label alignment="CENTER_RIGHT" layoutX="182.0" layoutY="1080.0" text="&lt;=" />
             <Label alignment="CENTER_RIGHT" layoutX="182.0" layoutY="1119.0" text="&gt;=" />
@@ -255,7 +255,7 @@
             <Label alignment="CENTER_RIGHT" layoutX="223.0" layoutY="638.0" text="!=" />
             <Label alignment="CENTER_RIGHT" layoutX="225.0" layoutY="673.0" text="=" />
             <Label alignment="CENTER_RIGHT" layoutX="226.0" layoutY="714.0" text="!=" />
-            <Label alignment="CENTER_RIGHT" layoutX="190.0" layoutY="744.0" text="=" />
+            <Label alignment="CENTER_RIGHT" layoutX="227.0" layoutY="743.0" text="=" />
             <Label alignment="CENTER_RIGHT" layoutX="225.0" layoutY="782.0" text="!=" />
             <Label alignment="CENTER_RIGHT" layoutX="186.0" layoutY="953.0" text="&lt;=" />
             <Label alignment="CENTER_RIGHT" layoutX="97.0" layoutY="1017.0" prefHeight="17.0" prefWidth="74.0" text="电源模式:" textFill="#2c7ce4" />
