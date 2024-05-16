@@ -20,12 +20,12 @@
    <content>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1942.0" prefWidth="978.0">
          <children>
-            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="55.0" layoutY="27.0" prefHeight="27.0" prefWidth="36.0" text="标题:" />
+            <Label contentDisplay="RIGHT" layoutX="55.0" layoutY="27.0" prefHeight="27.0" prefWidth="47.0" text="标题:" />
             <Label alignment="CENTER_RIGHT" layoutX="42.0" layoutY="32.0" text="*" textFill="RED" />
-            <Label alignment="CENTER_RIGHT" layoutX="307.0" layoutY="32.0" text="descriptorVersion:" />
-            <TextField fx:id="title_text" layoutX="93.0" layoutY="27.0" promptText="请输入" />
-            <Label alignment="CENTER_RIGHT" layoutX="334.0" layoutY="54.0" prefHeight="17.0" prefWidth="74.0" text="描述版本号:" textFill="#2c7ce4" />
-            <TextField fx:id="descriptorVersion_text" layoutX="415.0" layoutY="27.0" promptText="请输入" />
+            <Label layoutX="342.0" layoutY="32.0" prefHeight="17.0" prefWidth="128.0" text="descriptorVersion:" />
+            <TextField fx:id="title_text" layoutX="135.0" layoutY="27.0" promptText="请输入" />
+            <Label layoutX="359.0" layoutY="54.0" prefHeight="17.0" prefWidth="106.0" text="描述版本号:" textFill="#2c7ce4" />
+            <TextField fx:id="descriptorVersion_text" layoutX="491.0" layoutY="27.0" promptText="请输入" />
             <Separator layoutX="16.0" layoutY="90.0" prefHeight="2.0" prefWidth="576.0" />
             <Label alignment="CENTER_RIGHT" layoutX="21.0" layoutY="111.0" text="installPopupPolices:" />
             <Label layoutX="148.0" layoutY="111.0" text="安装弹窗条件:" textFill="#2c7ce4" />
