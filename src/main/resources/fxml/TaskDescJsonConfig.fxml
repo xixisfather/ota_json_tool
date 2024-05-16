@@ -22,7 +22,7 @@
          <children>
             <Label contentDisplay="RIGHT" layoutX="55.0" layoutY="27.0" prefHeight="27.0" prefWidth="38.0" text="标题:" />
             <Label alignment="CENTER_RIGHT" layoutX="42.0" layoutY="32.0" text="*" textFill="RED" />
-            <Label layoutX="342.0" layoutY="32.0" prefHeight="17.0" prefWidth="128.0" text="descriptorVersion:" />
+            <Label layoutX="317.0" layoutY="32.0" prefHeight="17.0" prefWidth="153.0" text="descriptorVersion:" />
             <TextField fx:id="title_text" layoutX="100.0" layoutY="27.0" promptText="请输入" />
             <Label layoutX="359.0" layoutY="54.0" prefHeight="17.0" prefWidth="106.0" text="描述版本号:" textFill="#2c7ce4" />
             <TextField fx:id="descriptorVersion_text" layoutX="491.0" layoutY="27.0" promptText="请输入" />
