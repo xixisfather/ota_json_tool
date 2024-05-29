@@ -104,7 +104,7 @@
                </toggleGroup>
             </RadioButton>
             <RadioButton fx:id="rVSSts_rd_pre_wycqd" alignment="CENTER_RIGHT" layoutX="409.0" layoutY="672.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="118.0" text="未远程启动" toggleGroup="$rVSSts_rd_pre_group" />
-            <Label alignment="CENTER_RIGHT" layoutX="113.0" layoutY="451.0" prefHeight="17.0" prefWidth="51.0" text="BatSOC:" />
+            <Label alignment="CENTER_RIGHT" layoutX="82.0" layoutY="451.0" prefHeight="17.0" prefWidth="82.0" text="BatSOC:" />
             <Label alignment="CENTER_RIGHT" layoutX="73.0" layoutY="465.0" prefHeight="17.0" prefWidth="95.0" text="蓄电池电量:" textFill="#2c7ce4" />
             <TextField fx:id="batSOC_text_pre" layoutX="245.0" layoutY="450.0" promptText="0-100" />
             <Label alignment="CENTER_RIGHT" layoutX="457.0" layoutY="457.0" text="\%" />
@@ -171,12 +171,12 @@
             <Label alignment="CENTER_RIGHT" layoutX="55.0" layoutY="1169.0" prefHeight="17.0" prefWidth="114.0" text="动力电池电量:" textFill="#2c7ce4" />
             <TextField fx:id="bMSPackSOCDsp_text_reentry" layoutX="235.0" layoutY="1150.0" promptText="0-100" />
             <Label alignment="CENTER_RIGHT" layoutX="466.0" layoutY="1155.0" text="\%" />
-            <Label alignment="CENTER_RIGHT" layoutX="62.0" layoutY="1264.0" prefHeight="17.0" prefWidth="105.0" text="charging_state:" />
+            <Label alignment="CENTER_RIGHT" layoutX="38.0" layoutY="1264.0" prefHeight="17.0" prefWidth="129.0" text="charging_state:" />
             <Label alignment="CENTER_RIGHT" layoutX="92.0" layoutY="1281.0" prefHeight="17.0" prefWidth="74.0" text="充电类型:" textFill="#2c7ce4" />
             <CheckBox fx:id="chargingState_cb_reentry_kc" alignment="CENTER_RIGHT" layoutX="238.0" layoutY="1264.0" mnemonicParsing="false" text="快充" />
             <CheckBox fx:id="chargingState_cb_reentry_mc" alignment="CENTER_RIGHT" layoutX="312.0" layoutY="1264.0" mnemonicParsing="false" text="慢充" />
             <CheckBox fx:id="chargingState_cb_reentry_wcd" alignment="CENTER_RIGHT" layoutX="388.0" layoutY="1264.0" mnemonicParsing="false" text="未充电" />
-            <Label alignment="CENTER_RIGHT" layoutX="40.0" layoutY="1298.0" prefHeight="17.0" prefWidth="127.0" text="charging_pile_type:" />
+            <Label alignment="CENTER_RIGHT" layoutX="13.0" layoutY="1298.0" prefHeight="17.0" prefWidth="154.0" text="charging_pile_type:" />
             <Label alignment="CENTER_RIGHT" layoutX="62.0" layoutY="1315.0" prefHeight="17.0" prefWidth="104.0" text="充电桩状态:" textFill="#2c7ce4" />
             <CheckBox fx:id="chargingPileType_cb_reentry_sz" alignment="CENTER_RIGHT" layoutX="238.0" layoutY="1298.0" mnemonicParsing="false" text="私桩" />
             <CheckBox fx:id="chargingPileType_cb_reentry_gz" alignment="CENTER_RIGHT" layoutX="312.0" layoutY="1298.0" mnemonicParsing="false" text="公桩" />
