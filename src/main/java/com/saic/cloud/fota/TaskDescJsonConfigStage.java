@@ -14,6 +14,7 @@ public class TaskDescJsonConfigStage extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/TaskDescJsonConfig.fxml"));
         primaryStage.setTitle(ToolContants.TASK_DESC_JSON_CONFIG_STAGE_TITLE);
         primaryStage.setScene(new Scene(root));
+        primaryStage.setFullScreen(true);
         primaryStage.show();
     }
 
