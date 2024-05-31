@@ -576,6 +576,8 @@ public class TaskDescJsonConfigController implements Initializable {
                 draftFile.delete();
             }
             FileUtils.TextToFile(draftPath, draftJson);
+            error_label.setText("保存草稿成功：" + draftPath);
+
         });
 
         buildJson_btn.setOnAction(event -> {
@@ -751,17 +753,17 @@ public class TaskDescJsonConfigController implements Initializable {
                     }
                 } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE, installCondition.getType())) {
                     for (String value : installCondition.getValue().split(",")) {
-                        if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000001, installCondition.getValue())) {
+                        if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000001, value)) {
                             oneHitScene_cb_pre_xqms.setSelected(true);
-                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000002, installCondition.getValue())) {
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000002, value)) {
                             oneHitScene_cb_pre_cwms.setSelected(true);
-                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000003, installCondition.getValue())) {
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000003, value)) {
                             oneHitScene_cb_pre_syms.setSelected(true);
-                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000004, installCondition.getValue())) {
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000004, value)) {
                             oneHitScene_cb_pre_zxms.setSelected(true);
-                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000B, installCondition.getValue())) {
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000B, value)) {
                             oneHitScene_cb_pre_xcms.setSelected(true);
-                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000C, installCondition.getValue())) {
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000C, value)) {
                             oneHitScene_cb_pre_lyms.setSelected(true);
                         }
                     }
@@ -866,17 +868,17 @@ public class TaskDescJsonConfigController implements Initializable {
                     }
                 } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE, installCondition.getType())) {
                     for (String value : installCondition.getValue().split(",")) {
-                        if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000001, installCondition.getValue())) {
+                        if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000001, value)) {
                             oneHitScene_cb_reentry_xqms.setSelected(true);
-                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000002, installCondition.getValue())) {
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000002, value)) {
                             oneHitScene_cb_reentry_cwms.setSelected(true);
-                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000003, installCondition.getValue())) {
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000003, value)) {
                             oneHitScene_cb_reentry_syms.setSelected(true);
-                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000004, installCondition.getValue())) {
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000004, value)) {
                             oneHitScene_cb_reentry_zxms.setSelected(true);
-                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000B, installCondition.getValue())) {
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000B, value)) {
                             oneHitScene_cb_reentry_xcms.setSelected(true);
-                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000C, installCondition.getValue())) {
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000C, value)) {
                             oneHitScene_cb_reentry_lyms.setSelected(true);
                         }
                     }
@@ -1126,7 +1128,7 @@ public class TaskDescJsonConfigController implements Initializable {
             oneHitScenes.add(ToolContants.ONE_HIT_SCENE_0000000C);
         }
         if (!oneHitScenes.isEmpty()) {
-            installReentryPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, StringUtils.join(chargingPileTypes.toArray(), ",")));
+            installReentryPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, StringUtils.join(oneHitScenes.toArray(), ",")));
         }
 
         if (chargeScene_rd_reentry_gzkc.isSelected()) {
@@ -1266,7 +1268,7 @@ public class TaskDescJsonConfigController implements Initializable {
             oneHitScenes.add(ToolContants.ONE_HIT_SCENE_0000000C);
         }
         if (!oneHitScenes.isEmpty()) {
-            installPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, StringUtils.join(chargingPileTypes.toArray(), ",")));
+            installPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, StringUtils.join(oneHitScenes.toArray(), ",")));
         }
 
         if (chargeScene_rd_pre_gzkc.isSelected()) {
