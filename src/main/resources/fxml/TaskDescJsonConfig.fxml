@@ -110,16 +110,6 @@
             <Label alignment="CENTER_RIGHT" layoutX="457.0" layoutY="457.0" text="\%" />
             <Label alignment="CENTER_RIGHT" layoutX="64.0" layoutY="709.0" prefHeight="17.0" prefWidth="105.0" text="OneHitScene:" />
             <Label alignment="CENTER_RIGHT" layoutX="60.0" layoutY="726.0" prefHeight="17.0" prefWidth="109.0" text="智能场景:" textFill="#2c7ce4" />
-            <RadioButton fx:id="oneHitScene_rd_pre_xqms" alignment="CENTER_RIGHT" layoutX="261.0" layoutY="713.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="109.0" text="小憩模式">
-               <toggleGroup>
-                  <ToggleGroup fx:id="oneHitScene_rd_pre_group" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="oneHitScene_rd_pre_cwms" alignment="CENTER_RIGHT" layoutX="379.0" layoutY="714.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="107.0" text="宠物模式" toggleGroup="$oneHitScene_rd_pre_group" />
-            <RadioButton fx:id="oneHitScene_rd_pre_syms" alignment="CENTER_RIGHT" layoutX="490.0" layoutY="714.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="121.0" text="宿营模式" toggleGroup="$oneHitScene_rd_pre_group" />
-            <RadioButton fx:id="oneHitScene_rd_pre_zxms" alignment="CENTER_RIGHT" layoutX="614.0" layoutY="714.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="110.0" text="尊享模式" toggleGroup="$oneHitScene_rd_pre_group" />
-            <RadioButton fx:id="oneHitScene_rd_pre_xcms" alignment="CENTER_RIGHT" layoutX="727.0" layoutY="714.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="107.0" text="洗车模式" toggleGroup="$oneHitScene_rd_pre_group" />
-            <RadioButton fx:id="oneHitScene_rd_pre_lyms" alignment="CENTER_RIGHT" layoutX="841.0" layoutY="714.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="113.0" text="露营模式" toggleGroup="$oneHitScene_rd_pre_group" />
             <Label alignment="CENTER_RIGHT" layoutX="65.0" layoutY="743.0" prefHeight="17.0" prefWidth="105.0" text="ChargeScene:" />
             <Label alignment="CENTER_RIGHT" layoutX="61.0" layoutY="760.0" prefHeight="17.0" prefWidth="109.0" text="充电场景:" textFill="#2c7ce4" />
             <RadioButton fx:id="chargeScene_rd_pre_gzkc" alignment="CENTER_RIGHT" layoutX="262.0" layoutY="747.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="106.0" text="公桩快充">
@@ -195,16 +185,6 @@
             <Label alignment="CENTER_RIGHT" layoutX="471.0" layoutY="1119.0" text="\%" />
             <Label alignment="CENTER_RIGHT" layoutX="66.0" layoutY="1372.0" prefHeight="17.0" prefWidth="105.0" text="OneHitScene:" />
             <Label alignment="CENTER_RIGHT" layoutX="62.0" layoutY="1389.0" prefHeight="17.0" prefWidth="109.0" text="智能场景:" textFill="#2c7ce4" />
-            <RadioButton fx:id="oneHitScene_rd_reentry_xqms" alignment="CENTER_RIGHT" layoutX="247.0" layoutY="1372.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="114.0" text="小憩模式">
-               <toggleGroup>
-                  <ToggleGroup fx:id="oneHitScene_rd_reentry_group" />
-               </toggleGroup>
-            </RadioButton>
-            <RadioButton fx:id="oneHitScene_rd_reentry_cwms" alignment="CENTER_RIGHT" layoutX="378.0" layoutY="1373.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="97.0" text="宠物模式" toggleGroup="$oneHitScene_rd_reentry_group" />
-            <RadioButton fx:id="oneHitScene_rd_reentry_syms" alignment="CENTER_RIGHT" layoutX="482.0" layoutY="1373.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="96.0" text="宿营模式" toggleGroup="$oneHitScene_rd_reentry_group" />
-            <RadioButton fx:id="oneHitScene_rd_reentry_zxms" alignment="CENTER_RIGHT" layoutX="597.0" layoutY="1372.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="110.0" text="尊享模式" toggleGroup="$oneHitScene_rd_reentry_group" />
-            <RadioButton fx:id="oneHitScene_rd_reentry_xcms" alignment="CENTER_RIGHT" layoutX="726.0" layoutY="1372.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="109.0" text="洗车模式" toggleGroup="$oneHitScene_rd_reentry_group" />
-            <RadioButton fx:id="oneHitScene_rd_reentry_lyms" alignment="CENTER_RIGHT" layoutX="841.0" layoutY="1373.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="113.0" text="露营模式" toggleGroup="$oneHitScene_rd_reentry_group" />
             <Label alignment="CENTER_RIGHT" layoutX="67.0" layoutY="1406.0" prefHeight="17.0" prefWidth="105.0" text="ChargeScene:" />
             <Label alignment="CENTER_RIGHT" layoutX="63.0" layoutY="1423.0" prefHeight="17.0" prefWidth="109.0" text="充电场景:" textFill="#2c7ce4" />
             <RadioButton fx:id="chargeScene_rd_reentry_gzkc" alignment="CENTER_RIGHT" layoutX="248.0" layoutY="1406.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="105.0" text="公桩快充">
@@ -367,6 +347,18 @@
             <Label fx:id="error_label" layoutX="30.0" layoutY="1826.0" textFill="RED" />
             <Label fx:id="version_label" alignment="CENTER_RIGHT" layoutX="871.0" layoutY="6.0" />
             <Button fx:id="import_ecu_btn" layoutX="746.0" layoutY="1441.0" mnemonicParsing="false" text="导入" />
+            <CheckBox fx:id="oneHitScene_cb_pre_xqms" layoutX="259.0" layoutY="714.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="小憩模式" />
+            <CheckBox fx:id="oneHitScene_cb_pre_cwms" layoutX="375.0" layoutY="714.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="宠物模式" />
+            <CheckBox fx:id="oneHitScene_cb_pre_syms" layoutX="492.0" layoutY="714.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="宿营模式" />
+            <CheckBox fx:id="oneHitScene_cb_pre_zxms" layoutX="608.0" layoutY="714.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="尊享模式" />
+            <CheckBox fx:id="oneHitScene_cb_pre_xcms" layoutX="718.0" layoutY="714.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="洗车模式" />
+            <CheckBox fx:id="oneHitScene_cb_pre_lyms" layoutX="821.0" layoutY="714.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="露营模式" />
+            <CheckBox fx:id="oneHitScene_cb_reentry_xqms" layoutX="253.0" layoutY="1372.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="小憩模式" />
+            <CheckBox fx:id="oneHitScene_cb_reentry_cwms" layoutX="369.0" layoutY="1372.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="宠物模式" />
+            <CheckBox fx:id="oneHitScene_cb_reentry_syms" layoutX="486.0" layoutY="1372.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="宿营模式" />
+            <CheckBox fx:id="oneHitScene_cb_reentry_zxms" layoutX="602.0" layoutY="1372.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="尊享模式" />
+            <CheckBox fx:id="oneHitScene_cb_reentry_xcms" layoutX="712.0" layoutY="1372.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="洗车模式" />
+            <CheckBox fx:id="oneHitScene_cb_reentry_lyms" layoutX="815.0" layoutY="1372.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="100.0" text="露营模式" />
          </children>
       </AnchorPane>
    </content>

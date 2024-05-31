@@ -215,32 +215,32 @@ public class TaskDescJsonConfigController implements Initializable {
      * 前置-智能场景-小憩模式
      */
     @FXML
-    private RadioButton oneHitScene_rd_pre_xqms;
+    private CheckBox oneHitScene_cb_pre_xqms;
     /**
      * 前置-智能场景-宠物模式
      */
     @FXML
-    private RadioButton oneHitScene_rd_pre_cwms;
+    private CheckBox oneHitScene_cb_pre_cwms;
     /**
      * 前置-智能场景-宿营模式
      */
     @FXML
-    private RadioButton oneHitScene_rd_pre_syms;
+    private CheckBox oneHitScene_cb_pre_syms;
     /**
      * 前置-智能场景-尊享模式
      */
     @FXML
-    private RadioButton oneHitScene_rd_pre_zxms;
+    private CheckBox oneHitScene_cb_pre_zxms;
     /**
      * 前置-智能场景-洗车模式
      */
     @FXML
-    private RadioButton oneHitScene_rd_pre_xcms;
+    private CheckBox oneHitScene_cb_pre_xcms;
     /**
      * 前置-智能场景-露营模式
      */
     @FXML
-    private RadioButton oneHitScene_rd_pre_lyms;
+    private CheckBox oneHitScene_cb_pre_lyms;
     /**
      * 前置-充电场景-公桩快充
      */
@@ -406,32 +406,32 @@ public class TaskDescJsonConfigController implements Initializable {
      * 升级中-智能场景-小憩模式
      */
     @FXML
-    private RadioButton oneHitScene_rd_reentry_xqms;
+    private CheckBox oneHitScene_cb_reentry_xqms;
     /**
      * 升级中-智能场景-宠物模式
      */
     @FXML
-    private RadioButton oneHitScene_rd_reentry_cwms;
+    private CheckBox oneHitScene_cb_reentry_cwms;
     /**
      * 升级中-智能场景-宿营模式
      */
     @FXML
-    private RadioButton oneHitScene_rd_reentry_syms;
+    private CheckBox oneHitScene_cb_reentry_syms;
     /**
      * 升级中-智能场景-尊享模式
      */
     @FXML
-    private RadioButton oneHitScene_rd_reentry_zxms;
+    private CheckBox oneHitScene_cb_reentry_zxms;
     /**
      * 升级中-智能场景-洗车模式
      */
     @FXML
-    private RadioButton oneHitScene_rd_reentry_xcms;
+    private CheckBox oneHitScene_cb_reentry_xcms;
     /**
      * 升级中-智能场景-露营模式
      */
     @FXML
-    private RadioButton oneHitScene_rd_reentry_lyms;
+    private CheckBox oneHitScene_cb_reentry_lyms;
     /**
      * 升级中-充电场景-公桩快充
      */
@@ -750,19 +750,22 @@ public class TaskDescJsonConfigController implements Initializable {
                         rVSSts_rd_pre_wycqd.setSelected(true);
                     }
                 } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE, installCondition.getType())) {
-                    if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000001, installCondition.getValue())) {
-                        oneHitScene_rd_pre_xqms.setSelected(true);
-                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000002, installCondition.getValue())) {
-                        oneHitScene_rd_pre_cwms.setSelected(true);
-                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000003, installCondition.getValue())) {
-                        oneHitScene_rd_pre_syms.setSelected(true);
-                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000004, installCondition.getValue())) {
-                        oneHitScene_rd_pre_zxms.setSelected(true);
-                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000B, installCondition.getValue())) {
-                        oneHitScene_rd_pre_xcms.setSelected(true);
-                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000C, installCondition.getValue())) {
-                        oneHitScene_rd_pre_lyms.setSelected(true);
+                    for (String value : installCondition.getValue().split(",")) {
+                        if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000001, installCondition.getValue())) {
+                            oneHitScene_cb_pre_xqms.setSelected(true);
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000002, installCondition.getValue())) {
+                            oneHitScene_cb_pre_cwms.setSelected(true);
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000003, installCondition.getValue())) {
+                            oneHitScene_cb_pre_syms.setSelected(true);
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000004, installCondition.getValue())) {
+                            oneHitScene_cb_pre_zxms.setSelected(true);
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000B, installCondition.getValue())) {
+                            oneHitScene_cb_pre_xcms.setSelected(true);
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000C, installCondition.getValue())) {
+                            oneHitScene_cb_pre_lyms.setSelected(true);
+                        }
                     }
+
                 } else if (StringUtils.equals(ToolContants.CHARGE_SCENE, installCondition.getType())) {
                     if (StringUtils.equals(ToolContants.CHARGE_SCENE_PUBLIC_FAST_CHARGE, installCondition.getValue())) {
                         chargeScene_rd_pre_gzkc.setSelected(true);
@@ -862,19 +865,22 @@ public class TaskDescJsonConfigController implements Initializable {
                         rVSSts_rd_reentry_wycqd.setSelected(true);
                     }
                 } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE, installCondition.getType())) {
-                    if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000001, installCondition.getValue())) {
-                        oneHitScene_rd_reentry_xqms.setSelected(true);
-                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000002, installCondition.getValue())) {
-                        oneHitScene_rd_reentry_cwms.setSelected(true);
-                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000003, installCondition.getValue())) {
-                        oneHitScene_rd_reentry_syms.setSelected(true);
-                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000004, installCondition.getValue())) {
-                        oneHitScene_rd_reentry_zxms.setSelected(true);
-                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000B, installCondition.getValue())) {
-                        oneHitScene_rd_reentry_xcms.setSelected(true);
-                    } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000C, installCondition.getValue())) {
-                        oneHitScene_rd_reentry_lyms.setSelected(true);
+                    for (String value : installCondition.getValue().split(",")) {
+                        if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000001, installCondition.getValue())) {
+                            oneHitScene_cb_reentry_xqms.setSelected(true);
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000002, installCondition.getValue())) {
+                            oneHitScene_cb_reentry_cwms.setSelected(true);
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000003, installCondition.getValue())) {
+                            oneHitScene_cb_reentry_syms.setSelected(true);
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_00000004, installCondition.getValue())) {
+                            oneHitScene_cb_reentry_zxms.setSelected(true);
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000B, installCondition.getValue())) {
+                            oneHitScene_cb_reentry_xcms.setSelected(true);
+                        } else if (StringUtils.equals(ToolContants.ONE_HIT_SCENE_0000000C, installCondition.getValue())) {
+                            oneHitScene_cb_reentry_lyms.setSelected(true);
+                        }
                     }
+
                 } else if (StringUtils.equals(ToolContants.CHARGE_SCENE, installCondition.getType())) {
                     if (StringUtils.equals(ToolContants.CHARGE_SCENE_PUBLIC_FAST_CHARGE, installCondition.getValue())) {
                         chargeScene_rd_reentry_gzkc.setSelected(true);
@@ -1100,23 +1106,27 @@ public class TaskDescJsonConfigController implements Initializable {
             installReentryPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.RVS_STS, ToolContants.RVS_STS_OFF));
         }
 
-        if (oneHitScene_rd_reentry_xqms.isSelected()) {
-            installReentryPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_00000001));
+        List<String> oneHitScenes = new ArrayList<>();
+        if (oneHitScene_cb_reentry_xqms.isSelected()) {
+            oneHitScenes.add(ToolContants.ONE_HIT_SCENE_00000001);
         }
-        if (oneHitScene_rd_reentry_cwms.isSelected()) {
-            installReentryPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_00000002));
+        if (oneHitScene_cb_reentry_cwms.isSelected()) {
+            oneHitScenes.add(ToolContants.ONE_HIT_SCENE_00000002);
         }
-        if (oneHitScene_rd_reentry_syms.isSelected()) {
-            installReentryPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_00000003));
+        if (oneHitScene_cb_reentry_syms.isSelected()) {
+            oneHitScenes.add(ToolContants.ONE_HIT_SCENE_00000003);
         }
-        if (oneHitScene_rd_reentry_zxms.isSelected()) {
-            installReentryPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_00000004));
+        if (oneHitScene_cb_reentry_zxms.isSelected()) {
+            oneHitScenes.add(ToolContants.ONE_HIT_SCENE_00000004);
         }
-        if (oneHitScene_rd_reentry_xcms.isSelected()) {
-            installReentryPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_0000000B));
+        if (oneHitScene_cb_reentry_xcms.isSelected()) {
+            oneHitScenes.add(ToolContants.ONE_HIT_SCENE_0000000B);
         }
-        if (oneHitScene_rd_reentry_lyms.isSelected()) {
-            installReentryPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_0000000C));
+        if (oneHitScene_cb_reentry_lyms.isSelected()) {
+            oneHitScenes.add(ToolContants.ONE_HIT_SCENE_0000000C);
+        }
+        if (!oneHitScenes.isEmpty()) {
+            installReentryPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, StringUtils.join(chargingPileTypes.toArray(), ",")));
         }
 
         if (chargeScene_rd_reentry_gzkc.isSelected()) {
@@ -1236,23 +1246,27 @@ public class TaskDescJsonConfigController implements Initializable {
             installPreCheck.add(buildInstallCondition(ToolContants.EQ, ToolContants.RVS_STS, ToolContants.RVS_STS_OFF));
         }
 
-        if (oneHitScene_rd_pre_xqms.isSelected()) {
-            installPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_00000001));
+        oneHitScenes = new ArrayList<>();
+        if (oneHitScene_cb_pre_xqms.isSelected()) {
+            oneHitScenes.add(ToolContants.ONE_HIT_SCENE_00000001);
         }
-        if (oneHitScene_rd_pre_cwms.isSelected()) {
-            installPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_00000002));
+        if (oneHitScene_cb_pre_cwms.isSelected()) {
+            oneHitScenes.add(ToolContants.ONE_HIT_SCENE_00000002);
         }
-        if (oneHitScene_rd_pre_syms.isSelected()) {
-            installPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_00000003));
+        if (oneHitScene_cb_pre_syms.isSelected()) {
+            oneHitScenes.add(ToolContants.ONE_HIT_SCENE_00000003);
         }
-        if (oneHitScene_rd_pre_zxms.isSelected()) {
-            installPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_00000004));
+        if (oneHitScene_cb_pre_zxms.isSelected()) {
+            oneHitScenes.add(ToolContants.ONE_HIT_SCENE_00000004);
         }
-        if (oneHitScene_rd_pre_xcms.isSelected()) {
-            installPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_0000000B));
+        if (oneHitScene_cb_pre_xcms.isSelected()) {
+            oneHitScenes.add(ToolContants.ONE_HIT_SCENE_0000000B);
         }
-        if (oneHitScene_rd_pre_lyms.isSelected()) {
-            installPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, ToolContants.ONE_HIT_SCENE_0000000C));
+        if (oneHitScene_cb_pre_lyms.isSelected()) {
+            oneHitScenes.add(ToolContants.ONE_HIT_SCENE_0000000C);
+        }
+        if (!oneHitScenes.isEmpty()) {
+            installPreCheck.add(buildInstallCondition(ToolContants.NEQ, ToolContants.ONE_HIT_SCENE, StringUtils.join(chargingPileTypes.toArray(), ",")));
         }
 
         if (chargeScene_rd_pre_gzkc.isSelected()) {

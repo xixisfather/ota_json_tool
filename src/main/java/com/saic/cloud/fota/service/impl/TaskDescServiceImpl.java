@@ -26,7 +26,7 @@ public class TaskDescServiceImpl implements TaskDescService {
     @Override
     public List<EcuUpdInfo> buildEcuInfoListFromExcle(String filePath) {
         List<EcuExcel> ecus = new ArrayList<>();
-        EasyExcel.read("/Users/chenchunrong/Downloads/导入ecu模版.xlsx", EcuExcel.class, new AnalysisEventListener<EcuExcel>() {
+        EasyExcel.read(filePath, EcuExcel.class, new AnalysisEventListener<EcuExcel>() {
 
             @Override
             public void invoke(EcuExcel ecuExcel, AnalysisContext analysisContext) {
